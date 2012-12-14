@@ -1,0 +1,39 @@
+GIT
+  remote: https://github.com/heygrady/compass-h5bp.git
+  revision: 0deb786d08ddf174b628bd5bc6754304568eea25
+  specs:
+    compass-h5bp (0.1.0)
+      compass
+
+GIT
+  remote: https://github.com/vwall/compass-twitter-bootstrap.git
+  revision: 18d2d061235d5477c3a30beab9f02c7e9387f0c4
+  specs:
+    compass_twitter_bootstrap (2.0.3)
+      compass
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    chunky_png (1.2.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    ffi (1.2.0)
+    fssm (0.2.9)
+    oily_png (1.0.2)
+      chunky_png (~> 1.2.1)
+    rb-inotify (0.8.8)
+      ffi (>= 0.5.0)
+    sass (3.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  compass
+  compass-h5bp!
+  compass_twitter_bootstrap!
+  oily_png
+  rb-inotify
