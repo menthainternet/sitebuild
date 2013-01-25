@@ -227,7 +227,7 @@ module.exports = function( grunt ) {
       });
     });
 
-	cb(res);
+    cb(res);
   });
 
   // Templating task insertion
