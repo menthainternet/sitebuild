@@ -33,7 +33,7 @@ A package-ben előre tömörített `.js` és `.css` fájlok legyenek.
 
 Könyvtár név: [package név]-[verzió]
 
-- `app/components/compass_twitter_bootstrap-2.0.3`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
+- `app/components/compass_twitter_bootstrap-2.2.2.1`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
 - `app/components/html5-boilerplate-4.0.2`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
 - `app/components/jquery-1.8.3`: [jQuery](http://jquery.com/)
 - `app/components/modernizr-2.6.2`: [Modernizr](http://modernizr.com/) custom build
