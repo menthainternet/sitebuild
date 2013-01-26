@@ -1,6 +1,6 @@
-<% block 'facebook_head_prefix' : %> prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"<% end -%>
-<% -%>
-<% block 'facebook_open_graph' : -%>
+<% block 'facebook_head_prefix' : %> prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"<% end %>
+<% %>
+<% block 'facebook_open_graph' : %>
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="">
 	<meta property="og:locale" content="<% content 'config_locale' %>">
@@ -8,9 +8,9 @@
 	<meta property="og:title" content="<% content 'title' %>">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="<% content 'config_open_graph_image' %>">
-<% end -%>
-<% -%>
-<% block 'facebook_js_sdk' : -%>
+<% end %>
+<% %>
+<% block 'facebook_js_sdk' : %>
 	<!-- Facebook JS SDK: change <% content 'config_facebook_app_id' %> and <% content 'config_facebook_channel_domain' %> to be your app's appId and site's domain respectively -->
 	<div id="fb-root"></div>
 	<script>
@@ -32,4 +32,4 @@
 			ref.parentNode.insertBefore(js, ref);
 		}(document, /*debug*/ false));
 	</script>
-<% end -%>
+<% end %>
