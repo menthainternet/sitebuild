@@ -21,17 +21,17 @@
 <% end %>
 <% %>
 <% block 'h5bp_modernizr' : %>
-	<script src="/components/modernizr-2.6.2/modernizr.min.js"></script>
+	<script src="/components/modernizr-<% content 'config_modernizr_version' %>/modernizr.min.js"></script>
 <% end %>
 <% %>
 <% block 'h5bp_jquery' : %>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/components/jquery-1.8.3/jquery.min.js"><\/script>')</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/<% content 'config_jquery_version' %>/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/components/jquery-<% content 'config_jquery_version' %>/jquery.min.js"><\/script>')</script>
 <% end %>
 <% %>
 <% block 'h5bp_plugins_js' : %>
 	<!-- build:js /scripts/frontend/plugins.js -->
-	<script src="components/html5-boilerplate-4.0.2/js/plugins.js"></script>
+	<script src="components/html5-boilerplate-<% content 'config_h5bp_version' %>/js/plugins.js"></script>
 <% include 'layouts/partials/plugins_js' %>
 	<!-- endbuild -->
 <% end %>
