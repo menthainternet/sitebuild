@@ -1,35 +1,35 @@
 <% block 'facebook_head_prefix' : %> prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"<% end %>
 <% %>
 <% block 'facebook_open_graph' : %>
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="">
-	<meta property="og:locale" content="<% content 'config_locale' %>">
-	<meta property="og:site_name" content="<% content 'config_site_name' %>">
-	<meta property="og:title" content="<% content 'title' %>">
-	<meta property="og:description" content="">
-	<meta property="og:image" content="<% content 'config_open_graph_image' %>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:locale" content="<% content 'config_locale' %>">
+<meta property="og:site_name" content="<% content 'config_site_name' %>">
+<meta property="og:title" content="<% content 'title' %>">
+<meta property="og:description" content="">
+<meta property="og:image" content="<% content 'config_open_graph_image' %>">
 <% end %>
 <% %>
 <% block 'facebook_js_sdk' : %>
-	<!-- Facebook JS SDK: change <% content 'config_facebook_app_id' %> and <% content 'config_facebook_channel_domain' %> to be your app's appId and site's domain respectively -->
-	<div id="fb-root"></div>
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId: '<% content 'config_facebook_app_id' %>',
-				channelUrl: '//<% content 'config_facebook_channel_domain' %>/channel_<% content 'config_locale' %>.html',
-				status: true,
-				cookie: true,
-				xfbml: true,
-				oauth: true
-			});
-		};
-		(function(d, debug){
-			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement('script'); js.id = id; js.async = true;
-			js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document, /*debug*/ false));
-	</script>
+<!-- Facebook JS SDK: change <% content 'config_facebook_app_id' %> and <% content 'config_facebook_channel_domain' %> to be your app's appId and site's domain respectively -->
+<div id="fb-root"></div>
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId: '<% content 'config_facebook_app_id' %>',
+			channelUrl: '//<% content 'config_facebook_channel_domain' %>/channel_<% content 'config_locale' %>.html',
+			status: true,
+			cookie: true,
+			xfbml: true,
+			oauth: true
+		});
+	};
+	(function(d, debug){
+		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement('script'); js.id = id; js.async = true;
+		js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
+		ref.parentNode.insertBefore(js, ref);
+	}(document, /*debug*/ false));
+</script>
 <% end %>

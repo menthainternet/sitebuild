@@ -7,47 +7,47 @@
 <% end %>
 <% %>
 <% block 'h5bp_title_metas' : %>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><% content 'title' %> | <% content 'config_site_name' %></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title><% content 'title' %> | <% content 'config_site_name' %></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
 <% end %>
 <% %>
 <% block 'h5bp_main_css' : %>
-	<!-- build:css /styles/frontend/main.css -->
-	<link rel="stylesheet" href="styles/frontend/main.css">
-	<!-- endbuild -->
+<!-- build:css /styles/frontend/main.css -->
+<link rel="stylesheet" href="styles/frontend/main.css">
+<!-- endbuild -->
 <% end %>
 <% %>
 <% block 'h5bp_modernizr' : %>
-	<script src="/components/modernizr-<% content 'config_modernizr_version' %>/modernizr.min.js"></script>
+<script src="/components/modernizr-<% content 'config_modernizr_version' %>/modernizr.min.js"></script>
 <% end %>
 <% %>
 <% block 'h5bp_jquery' : %>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/<% content 'config_jquery_version' %>/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/components/jquery-<% content 'config_jquery_version' %>/jquery.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/<% content 'config_jquery_version' %>/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/components/jquery-<% content 'config_jquery_version' %>/jquery.min.js"><\/script>')</script>
 <% end %>
 <% %>
 <% block 'h5bp_plugins_js' : %>
-	<!-- build:js /scripts/frontend/plugins.js -->
-	<script src="components/html5-boilerplate-<% content 'config_h5bp_version' %>/js/plugins.js"></script>
+<!-- build:js /scripts/frontend/plugins.js -->
+<script src="components/html5-boilerplate-<% content 'config_h5bp_version' %>/js/plugins.js"></script>
 <% include 'layouts/partials/plugins_js' %>
-	<!-- endbuild -->
+<!-- endbuild -->
 <% end %>
 <% %>
 <% block 'h5bp_main_js' : %>
-	<!-- build:js /scripts/frontend/main.js -->
-	<script src="scripts/frontend/main.js"></script>
-	<!-- endbuild -->
+<!-- build:js /scripts/frontend/main.js -->
+<script src="scripts/frontend/main.js"></script>
+<!-- endbuild -->
 <% end %>
 <% %>
 <% block 'h5bp_google_analytics' : %>
-	<!-- Google Analytics: change <% content 'config_google_analytics_site_id' %> to be your site's ID. -->
-	<script>
-		var _gaq=[['_setAccount','<% content 'config_google_analytics_site_id' %>'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-	</script>
+<!-- Google Analytics: change <% content 'config_google_analytics_site_id' %> to be your site's ID. -->
+<script>
+	var _gaq=[['_setAccount','<% content 'config_google_analytics_site_id' %>'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 <% end %>
