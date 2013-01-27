@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/szinya/compass-h5bp.git
-  revision: c395333f4b81ea28122089128269e607b0dae5dc
-  tag: v0.2.1
+  revision: d7671a1671da1d6ef0fc10d0bc8f92f6ac4f20e7
+  tag: v0.2.2
   specs:
-    compass-h5bp (0.2.1)
+    compass-h5bp (0.2.2)
       compass
 
 GEM
