@@ -328,7 +328,7 @@ module.exports = function( grunt ) {
       var args = optsToArgs( this.options() );
 
       var compass = grunt.util.spawn({
-        cmd: './bundle',
+        cmd: 'bundle',
         args: ['exec', 'compass', 'compile'].concat( args )
       }, function( err, result, code ) {
         if ( /not found/.test( err ) ) {
