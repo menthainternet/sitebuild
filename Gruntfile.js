@@ -345,4 +345,37 @@ module.exports = function( grunt ) {
     });
   })(grunt);
 
+  //override usemin:post:* tasks
+  grunt.renameHelper('usemin:post:html', 'usemin:post:original-html');
+  grunt.renameHelper('usemin:post:css', 'usemin:post:original-css');
+
+  // usemin:post:* are the global replace handlers, they delegate the regexp
+  // replace to the replace helper.
+  grunt.registerHelper('usemin:post:html', function(content) {
+    grunt.log.verbose.writeln('Update the HTML to reference our concat/min/revved script files');
+    content = grunt.helper('replace', content, /<script.+src=['"](.+)["'][\/>]?><[\\]?\/script>/gm);
+
+    grunt.log.verbose.writeln('Update the HTML with the new css filenames');
+    content = grunt.helper('replace', content, /<link[^\>]+href=['"]([^"']+)["']/gm);
+
+    grunt.log.verbose.writeln('Update the HTML with the new img filenames');
+    content = grunt.helper('replace', content, /<img[^\>]+src=['"]([^"']+)["']/gm);
+
+    grunt.log.verbose.writeln('Update the HTML with background imgs, case there is some inline style');
+    content = grunt.helper('replace', content, /url\(\s*['"]([^"']+)["']\s*\)/gm);
+
+    // grunt.log.verbose.writeln('Update the HTML with anchors images');
+    // content = grunt.helper('replace', content, /<a[^\>]+href=['"]([^"']+)["']/gm);
+
+    return content;
+  });
+
+  grunt.registerHelper('usemin:post:css', function(content) {
+
+    grunt.log.verbose.writeln('Update the CSS with background imgs, case there is some inline style');
+    content = grunt.helper('replace', content, /url\(\s*['"]?([^'"\)]+)['"]?\s*\)/gm);
+
+    return content;
+  });
+
 };
