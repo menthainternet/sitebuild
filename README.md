@@ -103,7 +103,6 @@ Ugyanitt a következő Compass plugineket importáljuk:
 
 Mixinek:
 
-- uppercase
 - `css3pie`: [CSS3 PIE](http://css3pie.com/), választható stable és beta verziók
 
 #### `app/styles/shared/lib/_helpers.scss`
