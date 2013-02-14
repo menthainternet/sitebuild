@@ -142,6 +142,8 @@ CKEditor stylesheet template.
 
 ## Egyéb fájlok
 
+### `.htaccess`
+
 ### `channel_hu_HU.html`
 
 ### `crossdomain.xml`
