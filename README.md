@@ -34,6 +34,8 @@ A package-ben előre tömörített `.js` és `.css` fájlok legyenek.
 Könyvtár név: [package név]-[verzió]
 
 - `app/components/compass_twitter_bootstrap-2.2.2.1`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
+- `app/components/css3pie-1.0.0`: [CSS3 PIE](http://css3pie.com/)
+- `app/components/css3pie-2.0beta1`: [CSS3 PIE](http://css3pie.com/)
 - `app/components/html5-boilerplate-4.1.0`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
 - `app/components/jquery-1.9.0`: jQuery ([release notes](http://blog.jquery.com/2013/01/15/jquery-1-9-final-jquery-2-0-beta-migrate-final-released/))
@@ -102,6 +104,7 @@ Ugyanitt a következő Compass plugineket importáljuk:
 Mixinek:
 
 - uppercase
+- `css3pie`: [CSS3 PIE](http://css3pie.com/), választható stable és beta verziók
 
 #### `app/styles/shared/lib/_helpers.scss`
 
