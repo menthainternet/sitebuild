@@ -10,11 +10,29 @@
 
 Checkout vagy yeoman init (ha majd kész lesz a generátor).
 
+### Post install
+
 ```
 $ bundle install
 $ npm install
+```
+
+### Fejlesztés könyvtár kiszolgálása
+
+```
 $ yeoman server
+```
+
+### Build
+
+```
 $ yeoman build
+```
+
+### Build könyvtár kiszolgálása
+
+```
+$ yeoman server:dist
 ```
 
 ## Konfig
@@ -29,7 +47,9 @@ $ yeoman build
 
 Ide kerülnek a package-nek tekinthető third party összetevők.
 
-A package-ben előre tömörített `.js` és `.css` fájlok legyenek.
+A package-ben előre tömörített `.js` és `.css` fájlok legyenek. *
+
+_* egyelőre pont az ellenkezője igaz: [https://github.com/yeoman/grunt-usemin/pull/24]_
 
 Könyvtár név: [package név]-[verzió]
 
@@ -113,17 +133,21 @@ Mixinek:
 
 Frontend stylesheet template SMACSS támogatással.
 
-`shared` és `frontend` definíció importok után saját plugin importok és definíciók.
+A stylesheet karakter kódolása UTF-8.
+
+`shared` és `frontend` definíció importok után helyi plugin importok és definíciók.
 
 [H5BP normalize.css](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#normalizecss) include
 
 [H5BP print styles](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#print-styles) include (opcionális)
 
-[Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) import (opcionális)
+[Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) import. Alap, reszponzív és Font Awesome verziók, melyekből csak egyet kell választani. (opcionális)
+
+Sprite import példa kód.
 
 ##### SMACSS szerinti bontás
 
-- `app/styles/frontend/main/base.scss` - [H5BP defaults](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults) include (opcionális)
+- `app/styles/frontend/main/base.scss` - [H5BP defaults](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults) include (Chrome Frame prompt kivételével, opcionális)
 - `app/styles/frontend/main/layout.scss`
 - `app/styles/frontend/main/modules/[module].scss`
 - `app/styles/frontend/main/state.scss`
@@ -134,9 +158,11 @@ Végül `shared` és `frontend` helperek betöltése, saját helperek definiál�
 
 CKEditor stylesheet template.
 
+A stylesheet karakter kódolása UTF-8.
+
 ## `app/templates`
 
-`'`, include sor elején, `.html` nem kell, `-%>`, abszolút hivatkozások, partialök behúzása
+`'`, include sor elején, `.html` nem kell, abszolút hivatkozások, partialök behúzása
 
 ## `app/uploads`
 
