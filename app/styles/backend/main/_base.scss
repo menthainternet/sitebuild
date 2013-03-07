@@ -1,0 +1,95 @@
+// H5BP defaults: https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults
+// @include h5bp-main;
+
+// Bootstrap tweaks
+p.logged {
+  text-shadow: none;
+}
+
+// Menu customization
+
+.navbar .brand {
+  padding: 10px 5px;
+}
+
+.navbar .nav > li > a {
+  padding: 10px 8px;
+}
+
+.ui-widget {
+  font-size: .8em;
+}
+
+.sf_admin_form_row {
+  input[type="text"], input[type="password"], textarea.input-large {
+    width: 98%;
+  }
+
+  select {
+    width: 99%;
+  }
+
+  textarea.input-large {
+    min-height: 200px;
+  }
+
+  span.cke_skin_kama {
+    border: none;
+    padding: 0 1% 0 0;
+  }
+
+  &.sf_admin_date select {
+    width: auto;
+  }
+}
+
+ul.tagit {
+  width: 98%;
+  border: 1px solid #cccccc;
+
+  li.tagit-new input[type="text"] {
+    @include box-shadow(none);
+
+    &:focus {
+      border: 0;
+      @include box-shadow(none);
+    }
+  }
+}
+
+input[type=text].date-input {
+  width: 66px;
+  font-size: 12px;
+}
+
+.sf_admin_list {
+
+  .sf_admin_date {
+    min-width: 100px;
+  }
+
+  tr.greystock {
+    .chzn-container {
+      max-width: 120px;
+    }
+  }
+}
+
+.chzn-container ul.chzn-choices {
+  border: 1px solid #ccc;
+}
+
+.ui-datepicker {
+  line-height: 1;
+}
+
+.ui-datepicker-title select {
+  height: auto;
+  padding: 2px;
+
+}
+
+ul.form-errors li {
+  list-style: none;
+  color: #cc0000;
+}

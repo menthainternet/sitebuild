@@ -1,0 +1,21 @@
+// Loading indicator
+
+#loading_indicator {
+  width: 110px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+  background-color: #fff98f;
+  border: 1px solid #ffd324;
+  text-align: center;
+  padding: 5px 10px;
+  @include border-bottom-radius(5px);
+  font-weight: bold;
+  position: relative;
+  margin: 0 auto;
+  display: none;
+
+  &.activity {
+    display: block;
+  }
+}
