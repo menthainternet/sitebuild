@@ -91,5 +91,19 @@ input[type=text].date-input {
 
 ul.form-errors li {
   list-style: none;
-  color: #cc0000;
+  color: #b94a48;
+}
+
+.checkbox_list {
+  li {
+    list-style: none;
+  }
+
+  label {
+    display: inline;
+  }
+}
+
+.form-horizontal .control-group {
+  margin-bottom: 14px;
 }
