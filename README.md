@@ -2,7 +2,7 @@
 
 ## Yeoman install
 
-- [OS X, Linux](http://yeoman.io/installation.html)
+- [OS X, Linux](https://github.com/yeoman/yeoman/wiki/Installation) (`curl -L https://github.com/yeoman/yeoman/raw/0.9.6/setup/install.sh | bash`)
 - [Windows](http://decodize.com/css/installing-yeoman-front-end-development-stack-windows/)
 - [Windows issues](https://github.com/yeoman/yeoman/issues/216)
 
@@ -128,7 +128,7 @@ Mixinek:
 
 #### `app/styles/shared/lib/_helpers.scss`
 
-[H5BP helper classok](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#common-helpers) `h-` (`ir`, `clearfix`) és `is-` (`hidden`, `visuallyhidden`, `invisible`) prefixszel.
+[H5BP helper classok](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#common-helpers) `h-` (`ir`, `clearfix`) és `is-` (`hidden`, `visuallyhidden`, `invisible`) namespace alatt.
 
 #### `app/styles/frontend/main.scss`
 
@@ -150,12 +150,33 @@ Sprite import példa kód.
 
 ##### SMACSS szerinti bontás
 
-- `app/styles/frontend/main/base.scss` - [H5BP defaults](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults) include (Chrome Frame prompt kivételével, opcionális)
-- `app/styles/frontend/main/layout.scss`
-- `app/styles/frontend/main/modules/[module].scss`
-- `app/styles/frontend/main/state.scss`
+- `app/styles/frontend/main/base.scss` - base class-ok, [H5BP defaults](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults) include (Chrome Frame prompt kivételével, opcionális)
+- `app/styles/frontend/main/layout.scss` - layout class-ok `l-` namespace alatt
+- `app/styles/frontend/main/modules/[moduleName].scss` - modul class-ok a modulok neveivel megegyező nevű fájlokban
+- `app/styles/frontend/main/state.scss` - state class-ok `is-` namespace alatt
 
 Végül `shared` és `frontend` helperek betöltése, saját helperek definiálása.
+
+#####Class nevek struktúrája:
+
+`[classCategory-]className[-childName][--modifierName]`
+
+######Layout példák
+
+- `l-layoutName`
+- `l-layoutName--modifierName`
+
+######Modul példák
+
+- `modulName`
+- `modulName-childName`
+- `modulName--modifierName`
+- `modulName-childName--modifierName`
+- `modulName-childName-childName`
+
+######State példa
+
+- `is-stateName`
 
 #### `app/styles/backend/editor.scss`
 

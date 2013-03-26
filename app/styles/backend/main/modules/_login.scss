@@ -1,0 +1,84 @@
+// Login box
+
+.login-box {
+  width: 400px;
+  margin: 40px auto;
+  background-color: #e9f1f4;
+  border: 1px solid #d8dee2;
+  @include border-radius(3px);
+
+  .header {
+    margin: 0;
+    padding: 0 10px;
+    font-size: 160%;
+    color: #fff;
+    @include text-shadow(0 -1px 0 rgba(0,0,0,0.7));
+    background-color: #666;
+    @include background-image(linear-gradient(color-stops(#666, #000)));
+    border: 1px solid #666;
+    @include border-radius(3px 3px 0 0);
+  }
+
+  form {
+    overflow: hidden;
+    margin: 20px 22px;
+
+    label {
+      @include inline-block();
+      margin-bottom: 0;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 340px;
+      margin-bottom: 0;
+    }
+
+    input[type=checkbox] {
+    }
+
+    input[type=submit] {
+      display: block;
+      float: right;
+      clear: both;
+      margin-top: 10px;
+    }
+  }
+
+  .signin-remember {
+    float: left;
+
+    .controls {
+      @include inline-block();
+    }
+  }
+
+  .has-required-field {
+    float: right;
+    @include clearfix();
+  }
+
+  ul.form-errors {
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
+
+  ul.form-errors li {
+    list-style: none;
+    color: #cc0000;
+  }
+
+  div.form-errors-global {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  div.form-errors-global ul.form-errors {
+    float: none;
+  }
+}
+
+.login-footer {
+  text-align: center;
+}
