@@ -54,8 +54,8 @@ _* egyelőre pont az ellenkezője igaz: [https://github.com/yeoman/grunt-usemin/
 Könyvtár név: [package név]-[verzió]
 
 - `app/components/compass_twitter_bootstrap-2.2.2.1`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
-- `app/components/css3pie-1.0.0`: [CSS3 PIE](http://css3pie.com/)
-- `app/components/css3pie-2.0beta1`: [CSS3 PIE](http://css3pie.com/)
+- `app/components/css3pie-1.0.0`: [CSS3 PIE](http://css3pie.com/) stable
+- `app/components/css3pie-2.0beta1`: [CSS3 PIE](http://css3pie.com/) beta
 - `app/components/html5-boilerplate-4.1.0`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
 - `app/components/iconic-4af32d470e`: [Iconic](http://www.somerandomdude.com/work/iconic/)
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
