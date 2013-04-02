@@ -1,4 +1,9 @@
 <% extend 'layouts/sitebuild' %>
 <% block 'title' : %>Tartalomjegyzék<% end %>
 <% %>
-<p><a href="index.html">Nyitóoldal</a></p>
+<div class="container">
+	<h1><% content('title') %></h1>
+	<ul>
+		<li><a href="/index.html">Nyitóoldal</a></li>
+	</ul>
+</div>
