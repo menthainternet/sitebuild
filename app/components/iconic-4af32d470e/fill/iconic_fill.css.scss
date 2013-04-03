@@ -1,175 +1,153 @@
-$iconicFontPath:   '/components/iconic-4af32d470e/fill/iconic_fill';
-$iconicFontFamily: 'IconicFill';
+@import "iconic_fill.scss";
 
-@font-face {
-  font-family: $iconicFontFamily;
-  src: url('#{$iconicFontPath}.eot');
-  src: url('#{$iconicFontPath}.eot?#iefix') format('embedded-opentype'), url('#{$iconicFontPath}.ttf') format('truetype'), url('#{$iconicFontPath}.svg#iconic') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@mixin iconic($icon, $position: 'before', $padding: 0.3em) {
-  $paddingPosition: 'right';
-
-  @if $position == 'after' {
-    $paddingPosition: 'left';
-  }
-
-  &:#{$position} {
-    font-family: $iconicFontFamily;
-    padding-#{$paddingPosition}: $padding;
-  }
-
-  @if      $icon == 'lightbulb'             { &:#{$position} { content: '\e063'; } }
-  @else if $icon == 'equalizer'             { &:#{$position} { content: '\e052'; } }
-  @else if $icon == 'brush_alt'             { &:#{$position} { content: '\e01c'; } }
-  @else if $icon == 'move'                  { &:#{$position} { content: '\e03e'; } }
-  @else if $icon == 'tag_fill'              { &:#{$position} { content: '\e02b'; } }
-  @else if $icon == 'book_alt2'             { &:#{$position} { content: '\e06a'; } }
-  @else if $icon == 'layers'                { &:#{$position} { content: '\e01f'; } }
-  @else if $icon == 'chat_alt_fill'         { &:#{$position} { content: '\e007'; } }
-  @else if $icon == 'layers_alt'            { &:#{$position} { content: '\e020'; } }
-  @else if $icon == 'cloud_upload'          { &:#{$position} { content: '\e045'; } }
-  @else if $icon == 'chart_alt'             { &:#{$position} { content: '\e029'; } }
-  @else if $icon == 'fullscreen_exit_alt'   { &:#{$position} { content: '\e051'; } }
-  @else if $icon == 'cloud_download'        { &:#{$position} { content: '\e044'; } }
-  @else if $icon == 'paperclip'             { &:#{$position} { content: '\e08a'; } }
-  @else if $icon == 'heart_fill'            { &:#{$position} { content: '\2764'; } }
-  @else if $icon == 'mail'                  { &:#{$position} { content: '\2709'; } }
-  @else if $icon == 'pen_alt_fill'          { &:#{$position} { content: '\e005'; } }
-  @else if $icon == 'check_alt'             { &:#{$position} { content: '\2718'; } }
-  @else if $icon == 'battery_charging'      { &:#{$position} { content: '\e05d'; } }
-  @else if $icon == 'lock_fill'             { &:#{$position} { content: '\e075'; } }
-  @else if $icon == 'stop'                  { &:#{$position} { content: '\e04a'; } }
-  @else if $icon == 'arrow_up'              { &:#{$position} { content: '\2191'; } }
-  @else if $icon == 'move_horizontal'       { &:#{$position} { content: '\e038'; } }
-  @else if $icon == 'compass'               { &:#{$position} { content: '\e021'; } }
-  @else if $icon == 'minus_alt'             { &:#{$position} { content: '\e009'; } }
-  @else if $icon == 'battery_empty'         { &:#{$position} { content: '\e05c'; } }
-  @else if $icon == 'comment_fill'          { &:#{$position} { content: '\e06d'; } }
-  @else if $icon == 'map_pin_alt'           { &:#{$position} { content: '\e002'; } }
-  @else if $icon == 'question_mark'         { &:#{$position} { content: '\003f'; } }
-  @else if $icon == 'list'                  { &:#{$position} { content: '\e055'; } }
-  @else if $icon == 'upload'                { &:#{$position} { content: '\e043'; } }
-  @else if $icon == 'reload'                { &:#{$position} { content: '\e030'; } }
-  @else if $icon == 'loop_alt4'             { &:#{$position} { content: '\e035'; } }
-  @else if $icon == 'loop_alt3'             { &:#{$position} { content: '\e034'; } }
-  @else if $icon == 'loop_alt2'             { &:#{$position} { content: '\e033'; } }
-  @else if $icon == 'loop_alt1'             { &:#{$position} { content: '\e032'; } }
-  @else if $icon == 'left_quote'            { &:#{$position} { content: '\275d'; } }
-  @else if $icon == 'x'                     { &:#{$position} { content: '\2713'; } }
-  @else if $icon == 'last'                  { &:#{$position} { content: '\e04d'; } }
-  @else if $icon == 'bars'                  { &:#{$position} { content: '\e06f'; } }
-  @else if $icon == 'arrow_left'            { &:#{$position} { content: '\2190'; } }
-  @else if $icon == 'arrow_down'            { &:#{$position} { content: '\2193'; } }
-  @else if $icon == 'download'              { &:#{$position} { content: '\e042'; } }
-  @else if $icon == 'home'                  { &:#{$position} { content: '\2302'; } }
-  @else if $icon == 'calendar'              { &:#{$position} { content: '\e001'; } }
-  @else if $icon == 'right_quote_alt'       { &:#{$position} { content: '\e012'; } }
-  @else if $icon == 'unlock_fill'           { &:#{$position} { content: '\e076'; } }
-  @else if $icon == 'fullscreen'            { &:#{$position} { content: '\e04e'; } }
-  @else if $icon == 'dial'                  { &:#{$position} { content: '\e058'; } }
-  @else if $icon == 'plus_alt'              { &:#{$position} { content: '\e008'; } }
-  @else if $icon == 'clock'                 { &:#{$position} { content: '\e079'; } }
-  @else if $icon == 'movie'                 { &:#{$position} { content: '\e060'; } }
-  @else if $icon == 'steering_wheel'        { &:#{$position} { content: '\e024'; } }
-  @else if $icon == 'pen'                   { &:#{$position} { content: '\270e'; } }
-  @else if $icon == 'pin'                   { &:#{$position} { content: '\e067'; } }
-  @else if $icon == 'denied'                { &:#{$position} { content: '\26d4'; } }
-  @else if $icon == 'left_quote_alt'        { &:#{$position} { content: '\e011'; } }
-  @else if $icon == 'volume_mute'           { &:#{$position} { content: '\e071'; } }
-  @else if $icon == 'umbrella'              { &:#{$position} { content: '\2602'; } }
-  @else if $icon == 'list_nested'           { &:#{$position} { content: '\e056'; } }
-  @else if $icon == 'arrow_up_alt1'         { &:#{$position} { content: '\e014'; } }
-  @else if $icon == 'undo'                  { &:#{$position} { content: '\e02f'; } }
-  @else if $icon == 'pause'                 { &:#{$position} { content: '\e049'; } }
-  @else if $icon == 'bolt'                  { &:#{$position} { content: '\26a1'; } }
-  @else if $icon == 'article'               { &:#{$position} { content: '\e053'; } }
-  @else if $icon == 'read_more'             { &:#{$position} { content: '\e054'; } }
-  @else if $icon == 'beaker'                { &:#{$position} { content: '\e023'; } }
-  @else if $icon == 'beaker_alt'            { &:#{$position} { content: '\e010'; } }
-  @else if $icon == 'battery_full'          { &:#{$position} { content: '\e073'; } }
-  @else if $icon == 'arrow_right'           { &:#{$position} { content: '\2192'; } }
-  @else if $icon == 'iphone'                { &:#{$position} { content: '\e06e'; } }
-  @else if $icon == 'arrow_up_alt2'         { &:#{$position} { content: '\e018'; } }
-  @else if $icon == 'cog'                   { &:#{$position} { content: '\2699'; } }
-  @else if $icon == 'award_fill'            { &:#{$position} { content: '\e022'; } }
-  @else if $icon == 'first'                 { &:#{$position} { content: '\e04c'; } }
-  @else if $icon == 'trash_fill'            { &:#{$position} { content: '\e05a'; } }
-  @else if $icon == 'image'                 { &:#{$position} { content: '\e027'; } }
-  @else if $icon == 'comment_alt1_fill'     { &:#{$position} { content: '\e003'; } }
-  @else if $icon == 'cd'                    { &:#{$position} { content: '\e064'; } }
-  @else if $icon == 'right_quote'           { &:#{$position} { content: '\275e'; } }
-  @else if $icon == 'brush'                 { &:#{$position} { content: '\e01b'; } }
-  @else if $icon == 'cloud'                 { &:#{$position} { content: '\2601'; } }
-  @else if $icon == 'eye'                   { &:#{$position} { content: '\e025'; } }
-  @else if $icon == 'play_alt'              { &:#{$position} { content: '\e048'; } }
-  @else if $icon == 'transfer'              { &:#{$position} { content: '\e041'; } }
-  @else if $icon == 'pen_alt2'              { &:#{$position} { content: '\e006'; } }
-  @else if $icon == 'camera'                { &:#{$position} { content: '\e070'; } }
-  @else if $icon == 'move_horizontal_alt2'  { &:#{$position} { content: '\e03a'; } }
-  @else if $icon == 'curved_arrow'          { &:#{$position} { content: '\2935'; } }
-  @else if $icon == 'move_horizontal_alt1'  { &:#{$position} { content: '\e039'; } }
-  @else if $icon == 'aperture'              { &:#{$position} { content: '\e026'; } }
-  @else if $icon == 'reload_alt'            { &:#{$position} { content: '\e031'; } }
-  @else if $icon == 'magnifying_glass'      { &:#{$position} { content: '\e074'; } }
-  @else if $icon == 'calendar_alt_fill'     { &:#{$position} { content: '\e06c'; } }
-  @else if $icon == 'fork'                  { &:#{$position} { content: '\e046'; } }
-  @else if $icon == 'box'                   { &:#{$position} { content: '\e06b'; } }
-  @else if $icon == 'map_pin_fill'          { &:#{$position} { content: '\e068'; } }
-  @else if $icon == 'bars_alt'              { &:#{$position} { content: '\e00a'; } }
-  @else if $icon == 'volume'                { &:#{$position} { content: '\e072'; } }
-  @else if $icon == 'x_alt'                 { &:#{$position} { content: '\2714'; } }
-  @else if $icon == 'link'                  { &:#{$position} { content: '\e077'; } }
-  @else if $icon == 'move_vertical'         { &:#{$position} { content: '\e03b'; } }
-  @else if $icon == 'eyedropper'            { &:#{$position} { content: '\e01e'; } }
-  @else if $icon == 'spin'                  { &:#{$position} { content: '\e036'; } }
-  @else if $icon == 'rss'                   { &:#{$position} { content: '\e02c'; } }
-  @else if $icon == 'info'                  { &:#{$position} { content: '\2139'; } }
-  @else if $icon == 'target'                { &:#{$position} { content: '\e02a'; } }
-  @else if $icon == 'cursor'                { &:#{$position} { content: '\e057'; } }
-  @else if $icon == 'key_fill'              { &:#{$position} { content: '\26bf'; } }
-  @else if $icon == 'minus'                 { &:#{$position} { content: '\2796'; } }
-  @else if $icon == 'book_alt'              { &:#{$position} { content: '\e00b'; } }
-  @else if $icon == 'headphones'            { &:#{$position} { content: '\e061'; } }
-  @else if $icon == 'hash'                  { &:#{$position} { content: '\0023'; } }
-  @else if $icon == 'arrow_left_alt1'       { &:#{$position} { content: '\e013'; } }
-  @else if $icon == 'arrow_left_alt2'       { &:#{$position} { content: '\e017'; } }
-  @else if $icon == 'fullscreen_exit'       { &:#{$position} { content: '\e050'; } }
-  @else if $icon == 'share'                 { &:#{$position} { content: '\e02e'; } }
-  @else if $icon == 'fullscreen_alt'        { &:#{$position} { content: '\e04f'; } }
-  @else if $icon == 'comment_alt2_fill'     { &:#{$position} { content: '\e004'; } }
-  @else if $icon == 'moon_fill'             { &:#{$position} { content: '\263e'; } }
-  @else if $icon == 'at'                    { &:#{$position} { content: '\0040'; } }
-  @else if $icon == 'chat'                  { &:#{$position} { content: '\e05e'; } }
-  @else if $icon == 'move_vertical_alt2'    { &:#{$position} { content: '\e03d'; } }
-  @else if $icon == 'move_vertical_alt1'    { &:#{$position} { content: '\e03c'; } }
-  @else if $icon == 'check'                 { &:#{$position} { content: '\2717'; } }
-  @else if $icon == 'mic'                   { &:#{$position} { content: '\e05f'; } }
-  @else if $icon == 'book'                  { &:#{$position} { content: '\e069'; } }
-  @else if $icon == 'move_alt1'             { &:#{$position} { content: '\e03f'; } }
-  @else if $icon == 'move_alt2'             { &:#{$position} { content: '\e040'; } }
-  @else if $icon == 'document_fill'         { &:#{$position} { content: '\e066'; } }
-  @else if $icon == 'plus'                  { &:#{$position} { content: '\2795'; } }
-  @else if $icon == 'wrench'                { &:#{$position} { content: '\e078'; } }
-  @else if $icon == 'play'                  { &:#{$position} { content: '\e047'; } }
-  @else if $icon == 'star'                  { &:#{$position} { content: '\2605'; } }
-  @else if $icon == 'document_alt_fill'     { &:#{$position} { content: '\e000'; } }
-  @else if $icon == 'chart'                 { &:#{$position} { content: '\e028'; } }
-  @else if $icon == 'rain'                  { &:#{$position} { content: '\26c6'; } }
-  @else if $icon == 'folder_fill'           { &:#{$position} { content: '\e065'; } }
-  @else if $icon == 'new_window'            { &:#{$position} { content: '\e059'; } }
-  @else if $icon == 'user'                  { &:#{$position} { content: '\e062'; } }
-  @else if $icon == 'battery_half'          { &:#{$position} { content: '\e05b'; } }
-  @else if $icon == 'aperture_alt'          { &:#{$position} { content: '\e00c'; } }
-  @else if $icon == 'eject'                 { &:#{$position} { content: '\e04b'; } }
-  @else if $icon == 'arrow_down_alt1'       { &:#{$position} { content: '\e016'; } }
-  @else if $icon == 'pilcrow'               { &:#{$position} { content: '\00b6'; } }
-  @else if $icon == 'arrow_down_alt2'       { &:#{$position} { content: '\e01a'; } }
-  @else if $icon == 'arrow_right_alt1'      { &:#{$position} { content: '\e015'; } }
-  @else if $icon == 'arrow_right_alt2'      { &:#{$position} { content: '\e019'; } }
-  @else if $icon == 'rss_alt'               { &:#{$position} { content: '\e02d'; } }
-  @else if $icon == 'spin_alt'              { &:#{$position} { content: '\e037'; } }
-  @else if $icon == 'sun_fill'              { &:#{$position} { content: '\2600'; } }
-}
+.iconic-lightbulb             { @include iconic(lightbulb) }
+.iconic-equalizer             { @include iconic(equalizer) }
+.iconic-brush_alt             { @include iconic(brush_alt) }
+.iconic-move                  { @include iconic(move) }
+.iconic-tag_fill              { @include iconic(tag_fill) }
+.iconic-book_alt2             { @include iconic(book_alt2) }
+.iconic-layers                { @include iconic(layers) }
+.iconic-chat_alt_fill         { @include iconic(chat_alt_fill) }
+.iconic-layers_alt            { @include iconic(layers_alt) }
+.iconic-cloud_upload          { @include iconic(cloud_upload) }
+.iconic-chart_alt             { @include iconic(chart_alt) }
+.iconic-fullscreen_exit_alt   { @include iconic(fullscreen_exit_alt) }
+.iconic-cloud_download        { @include iconic(cloud_download) }
+.iconic-paperclip             { @include iconic(paperclip) }
+.iconic-heart_fill            { @include iconic(heart_fill) }
+.iconic-mail                  { @include iconic(mail) }
+.iconic-pen_alt_fill          { @include iconic(pen_alt_fill) }
+.iconic-check_alt             { @include iconic(check_alt) }
+.iconic-battery_charging      { @include iconic(battery_charging) }
+.iconic-lock_fill             { @include iconic(lock_fill) }
+.iconic-stop                  { @include iconic(stop) }
+.iconic-arrow_up              { @include iconic(arrow_up) }
+.iconic-move_horizontal       { @include iconic(move_horizontal) }
+.iconic-compass               { @include iconic(compass) }
+.iconic-minus_alt             { @include iconic(minus_alt) }
+.iconic-battery_empty         { @include iconic(battery_empty) }
+.iconic-comment_fill          { @include iconic(comment_fill) }
+.iconic-map_pin_alt           { @include iconic(map_pin_alt) }
+.iconic-question_mark         { @include iconic(question_mark) }
+.iconic-list                  { @include iconic(list) }
+.iconic-upload                { @include iconic(upload) }
+.iconic-reload                { @include iconic(reload) }
+.iconic-loop_alt4             { @include iconic(loop_alt4) }
+.iconic-loop_alt3             { @include iconic(loop_alt3) }
+.iconic-loop_alt2             { @include iconic(loop_alt2) }
+.iconic-loop_alt1             { @include iconic(loop_alt1) }
+.iconic-left_quote            { @include iconic(left_quote) }
+.iconic-x                     { @include iconic(x) }
+.iconic-last                  { @include iconic(last) }
+.iconic-bars                  { @include iconic(bars) }
+.iconic-arrow_left            { @include iconic(arrow_left) }
+.iconic-arrow_down            { @include iconic(arrow_down) }
+.iconic-download              { @include iconic(download) }
+.iconic-home                  { @include iconic(home) }
+.iconic-calendar              { @include iconic(calendar) }
+.iconic-right_quote_alt       { @include iconic(right_quote_alt) }
+.iconic-unlock_fill           { @include iconic(unlock_fill) }
+.iconic-fullscreen            { @include iconic(fullscreen) }
+.iconic-dial                  { @include iconic(dial) }
+.iconic-plus_alt              { @include iconic(plus_alt) }
+.iconic-clock                 { @include iconic(clock) }
+.iconic-movie                 { @include iconic(movie) }
+.iconic-steering_wheel        { @include iconic(steering_wheel) }
+.iconic-pen                   { @include iconic(pen) }
+.iconic-pin                   { @include iconic(pin) }
+.iconic-denied                { @include iconic(denied) }
+.iconic-left_quote_alt        { @include iconic(left_quote_alt) }
+.iconic-volume_mute           { @include iconic(volume_mute) }
+.iconic-umbrella              { @include iconic(umbrella) }
+.iconic-list_nested           { @include iconic(list_nested) }
+.iconic-arrow_up_alt1         { @include iconic(arrow_up_alt1) }
+.iconic-undo                  { @include iconic(undo) }
+.iconic-pause                 { @include iconic(pause) }
+.iconic-bolt                  { @include iconic(bolt) }
+.iconic-article               { @include iconic(article) }
+.iconic-read_more             { @include iconic(read_more) }
+.iconic-beaker                { @include iconic(beaker) }
+.iconic-beaker_alt            { @include iconic(beaker_alt) }
+.iconic-battery_full          { @include iconic(battery_full) }
+.iconic-arrow_right           { @include iconic(arrow_right) }
+.iconic-iphone                { @include iconic(iphone) }
+.iconic-arrow_up_alt2         { @include iconic(arrow_up_alt2) }
+.iconic-cog                   { @include iconic(cog) }
+.iconic-award_fill            { @include iconic(award_fill) }
+.iconic-first                 { @include iconic(first) }
+.iconic-trash_fill            { @include iconic(trash_fill) }
+.iconic-image                 { @include iconic(image) }
+.iconic-comment_alt1_fill     { @include iconic(comment_alt1_fill) }
+.iconic-cd                    { @include iconic(cd) }
+.iconic-right_quote           { @include iconic(right_quote) }
+.iconic-brush                 { @include iconic(brush) }
+.iconic-cloud                 { @include iconic(cloud) }
+.iconic-eye                   { @include iconic(eye) }
+.iconic-play_alt              { @include iconic(play_alt) }
+.iconic-transfer              { @include iconic(transfer) }
+.iconic-pen_alt2              { @include iconic(pen_alt2) }
+.iconic-camera                { @include iconic(camera) }
+.iconic-move_horizontal_alt2  { @include iconic(move_horizontal_alt2) }
+.iconic-curved_arrow          { @include iconic(curved_arrow) }
+.iconic-move_horizontal_alt1  { @include iconic(move_horizontal_alt1) }
+.iconic-aperture              { @include iconic(aperture) }
+.iconic-reload_alt            { @include iconic(reload_alt) }
+.iconic-magnifying_glass      { @include iconic(magnifying_glass) }
+.iconic-calendar_alt_fill     { @include iconic(calendar_alt_fill) }
+.iconic-fork                  { @include iconic(fork) }
+.iconic-box                   { @include iconic(box) }
+.iconic-map_pin_fill          { @include iconic(map_pin_fill) }
+.iconic-bars_alt              { @include iconic(bars_alt) }
+.iconic-volume                { @include iconic(volume) }
+.iconic-x_alt                 { @include iconic(x_alt) }
+.iconic-link                  { @include iconic(link) }
+.iconic-move_vertical         { @include iconic(move_vertical) }
+.iconic-eyedropper            { @include iconic(eyedropper) }
+.iconic-spin                  { @include iconic(spin) }
+.iconic-rss                   { @include iconic(rss) }
+.iconic-info                  { @include iconic(info) }
+.iconic-target                { @include iconic(target) }
+.iconic-cursor                { @include iconic(cursor) }
+.iconic-key_fill              { @include iconic(key_fill) }
+.iconic-minus                 { @include iconic(minus) }
+.iconic-book_alt              { @include iconic(book_alt) }
+.iconic-headphones            { @include iconic(headphones) }
+.iconic-hash                  { @include iconic(hash) }
+.iconic-arrow_left_alt1       { @include iconic(arrow_left_alt1) }
+.iconic-arrow_left_alt2       { @include iconic(arrow_left_alt2) }
+.iconic-fullscreen_exit       { @include iconic(fullscreen_exit) }
+.iconic-share                 { @include iconic(share) }
+.iconic-fullscreen_alt        { @include iconic(fullscreen_alt) }
+.iconic-comment_alt2_fill     { @include iconic(comment_alt2_fill) }
+.iconic-moon_fill             { @include iconic(moon_fill) }
+.iconic-at                    { @include iconic(at) }
+.iconic-chat                  { @include iconic(chat) }
+.iconic-move_vertical_alt2    { @include iconic(move_vertical_alt2) }
+.iconic-move_vertical_alt1    { @include iconic(move_vertical_alt1) }
+.iconic-check                 { @include iconic(check) }
+.iconic-mic                   { @include iconic(mic) }
+.iconic-book                  { @include iconic(book) }
+.iconic-move_alt1             { @include iconic(move_alt1) }
+.iconic-move_alt2             { @include iconic(move_alt2) }
+.iconic-document_fill         { @include iconic(document_fill) }
+.iconic-plus                  { @include iconic(plus) }
+.iconic-wrench                { @include iconic(wrench) }
+.iconic-play                  { @include iconic(play) }
+.iconic-star                  { @include iconic(star) }
+.iconic-document_alt_fill     { @include iconic(document_alt_fill) }
+.iconic-chart                 { @include iconic(chart) }
+.iconic-rain                  { @include iconic(rain) }
+.iconic-folder_fill           { @include iconic(folder_fill) }
+.iconic-new_window            { @include iconic(new_window) }
+.iconic-user                  { @include iconic(user) }
+.iconic-battery_half          { @include iconic(battery_half) }
+.iconic-aperture_alt          { @include iconic(aperture_alt) }
+.iconic-eject                 { @include iconic(eject) }
+.iconic-arrow_down_alt1       { @include iconic(arrow_down_alt1) }
+.iconic-pilcrow               { @include iconic(pilcrow) }
+.iconic-arrow_down_alt2       { @include iconic(arrow_down_alt2) }
+.iconic-arrow_right_alt1      { @include iconic(arrow_right_alt1) }
+.iconic-arrow_right_alt2      { @include iconic(arrow_right_alt2) }
+.iconic-rss_alt               { @include iconic(rss_alt) }
+.iconic-spin_alt              { @include iconic(spin_alt) }
+.iconic-sun_fill              { @include iconic(sun_fill) }
