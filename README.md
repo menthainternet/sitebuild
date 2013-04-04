@@ -60,6 +60,7 @@ Könyvtár név: [package név]-[verzió]
 - `app/components/iconic-4af32d470e`: [Iconic](http://www.somerandomdude.com/work/iconic/)
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
 - `app/components/jquery-1.9.1`: jQuery ([release notes](http://blog.jquery.com/2013/02/04/jquery-1-9-1-released/))
+- `app/components/jquery-placeholder-2.0.7`: [HTML5 Placeholder jQuery Plugin](https://github.com/mathiasbynens/jquery-placeholder)
 - `app/components/modernizr-2.6.2`: [Modernizr](http://modernizr.com/) custom build
 
 ## Asset könyvtárak
