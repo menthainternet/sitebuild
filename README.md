@@ -61,7 +61,9 @@ Könyvtár név: [package név]-[verzió]
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
 - `app/components/jquery-1.9.1`: jQuery ([release notes](http://blog.jquery.com/2013/02/04/jquery-1-9-1-released/))
 - `app/components/jquery-placeholder-2.0.7`: [HTML5 Placeholder jQuery Plugin](https://github.com/mathiasbynens/jquery-placeholder)
+- `app/components/jquery-ui-1.10.0`: jQuery UI [release notes](http://blog.jqueryui.com/2013/01/jquery-ui-1-10-0/)
 - `app/components/modernizr-2.6.2`: [Modernizr](http://modernizr.com/) custom build
+- `app/components/selectivizr-1.0.2`: [Selectivizr](http://selectivizr.com)
 
 ## Asset könyvtárak
 
