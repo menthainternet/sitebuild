@@ -35,6 +35,14 @@ $ yeoman build
 $ yeoman server:dist
 ```
 
+### Projectbe ágyazott sitebuild kiszolgálása
+
+```
+$ yeoman server:prj
+```
+
+Használat közben folyamatosan másol mindent a `dist` könyvárba is, erre például Symfony projecten belül van szükség.
+
 ## Konfig
 
 - `package.json`: [npm és Node.js konfig](http://package.json.nodejitsu.com/) ([Grunt](http://gruntjs.com/) taskok függőségei)

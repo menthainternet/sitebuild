@@ -1,12 +1,13 @@
 {
   "name": "sitebuild",
-  "version": "1.2.15",
+  "version": "1.2.16",
   "description": "mentha sitebuild template",
   "author": "szinya@mentha.hu",
   "license": "BSD",
   "readmeFilename": "README.md",
   "dependencies": {
     "connect": "~2.2.1",
+    "open": "0.0.2",
     "ect": "https://github.com/szinya/ect/tarball/master"
   }
 }

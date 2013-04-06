@@ -1,5 +1,6 @@
 var fs = require('fs'),
   path = require('path'),
+  open = require('open'),
   connect = require('connect');
 
 module.exports = function( grunt ) {
@@ -198,6 +199,33 @@ module.exports = function( grunt ) {
     }
   });
 
+  // server:prj watch configuration
+  grunt.util._.contains(grunt.cli.tasks, 'server:prj') &&
+  grunt.config('watch', {
+    coffee: {
+      files: 'app/scripts/**/*.coffee',
+      tasks: 'coffee mkdirs copy reload'
+    },
+    compass: {
+      files: 'app/styles/**/*.{scss,sass}',
+      tasks: 'compass mkdirs copy reload'
+    },
+    template: {
+      files: 'app/templates/**/*',
+      tasks: 'template reload'
+    },
+    reload: {
+      files: [
+        'app/styles/**/*.css',
+        'app/scripts/**/*.js',
+        'app/images/**/*.{gif,jpg,png}',
+        'app/fonts/**/*',
+        'app/multimedia/**/*'
+      ],
+      tasks: 'mkdirs copy reload'
+    }
+  });
+
   // Alias the `test` task to run the `mocha` task instead
   grunt.registerTask('test', 'server:phantom mocha');
 
@@ -235,6 +263,84 @@ module.exports = function( grunt ) {
   // Templating task insertion
   grunt.renameTask('clean', 'original-clean');
   grunt.registerTask('clean', 'original-clean template');
+
+  // Server task customization
+  grunt.renameTask('server', 'original-server');
+
+  grunt.registerTask('server', 'Launch a preview, LiveReload compatible server', function(target) {
+    var opts;
+    // Get values from config, or use defaults.
+    var port = grunt.config('server.port') || 0xDAD;
+
+    // async task, call it (or not if you wish to use this task standalone)
+    var cb = this.async();
+
+    // valid target are app (default), prod and test
+    var targets = {
+      // these paths once config and paths resolved will need to pull in the
+      // correct paths from config
+      app: path.resolve('app'),
+      prj: path.resolve('app'),
+      dist: path.resolve('dist'),
+      test: path.resolve('test'),
+
+      // phantom target is a special one: it is triggered
+      // before launching the headless tests, and gives
+      // to phantomjs visibility on the same paths a
+      // server:test have.
+      phantom: path.resolve('test'),
+
+      // reload is a special one, acting like `app` but not opening the HTTP
+      // server in default browser and forcing the port to LiveReload standard
+      // port.
+      reload: path.resolve('app')
+    };
+
+    target = target || 'app';
+
+    // yell on invalid target argument
+    if(!targets[target]) {
+      grunt
+        .log.error('Not a valid target: ' + target)
+        .writeln('Valid ones are: ' + grunt.log.wordlist(Object.keys(targets)));
+      return false;
+    }
+
+    var tasks = {
+      // We do want our coffee, and compass recompiled on change
+      // and our browser opened and refreshed both when developping
+      // (app) and when writing tests (test)
+      app: 'clean coffee compass open-browser watch',
+      prj: 'clean coffee compass mkdirs copy open-browser watch',
+      test: 'clean coffee compass open-browser watch',
+      // Before our headless tests are run, ensure our coffee
+      // and compass are recompiled
+      phantom: 'clean coffee compass',
+      dist: 'watch',
+      reload: 'watch'
+    };
+
+    opts = {
+      // prevent browser opening on `reload` target
+      open: target !== 'reload',
+      // and force 35729 port no matter what when on `reload` target
+      port: target === 'reload' ? 35729 : port,
+      base: targets[target],
+      inject: true,
+      target: target,
+      hostname: grunt.config('server.hostname') || 'localhost'
+    };
+
+    grunt.helper('server', opts, cb);
+
+    grunt.registerTask('open-browser', function() {
+        if ( opts.open ) {
+          open( 'http://' + opts.hostname + ':' + opts.port );
+        }
+    });
+
+    grunt.task.run( tasks[target] );
+  });
 
   // Build task customization
   grunt.renameTask('build', 'original-build');
