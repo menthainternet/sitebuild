@@ -235,22 +235,22 @@ module.exports = function( grunt ) {
   grunt.config('watch', {
     coffee: {
       files: 'app/scripts/**/*.coffee',
-      tasks: 'coffee mkdirs usemin-handler concat usemin reload'
+      tasks: 'coffee mkdirs usemin-handler concat usemin cwd:base reload'
     },
     compass: {
       files: 'app/styles/**/*.{scss,sass}',
-      tasks: 'compass mkdirs usemin-handler concat usemin reload'
+      tasks: 'compass mkdirs usemin-handler concat usemin cwd:base reload'
     },
     template: {
       files: 'app/templates/**/*',
-      tasks: 'template usemin-handler concat usemin reload'
+      tasks: 'template cwd:staging usemin-handler concat usemin cwd:base reload'
     },
     reload_css_js: {
       files: [
         'app/styles/**/*.css',
         'app/scripts/**/*.js'
       ],
-      tasks: 'mkdirs usemin-handler concat usemin reload'
+      tasks: 'mkdirs usemin-handler concat usemin cwd:base reload'
     },
     reload_others: {
       files: [
@@ -258,7 +258,7 @@ module.exports = function( grunt ) {
         'app/fonts/**/*',
         'app/multimedia/**/*'
       ],
-      tasks: 'mkdirs reload'
+      tasks: 'mkdirs cwd:base reload'
     }
   });
 
@@ -601,7 +601,7 @@ module.exports = function( grunt ) {
 
   });
 
-  // Symlink task
+  // symlink task
   grunt.registerTask('symlink', 'Links the staging(temp/) folder to output (dist/) one', function() {
     this.requiresConfig('staging', 'output');
 
@@ -618,5 +618,12 @@ module.exports = function( grunt ) {
       }
       cb(!e);
     });
+  });
+
+  // cwd task
+  grunt.registerTask('cwd', 'Change working directory task', function(target) {
+    target = target || 'base';
+
+    grunt.file.setBase(grunt.config(target));
   });
 };
