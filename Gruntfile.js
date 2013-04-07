@@ -1,7 +1,38 @@
 var fs = require('fs'),
   path = require('path'),
   open = require('open'),
-  connect = require('connect');
+  connect = require('connect'),
+  regbuild = /<!--\s*build:(\w+)\s*(.+)\s*-->/,
+  regend = /<!--\s*endbuild\s*-->/;
+
+function getBlocks(body) {
+  var lines = body.replace(/\r\n/g, '\n').split(/\n/),
+    block = false,
+    sections = {},
+    last;
+
+  lines.forEach(function(l) {
+    var build = l.match(regbuild),
+      endbuild = regend.test(l);
+
+    if(build) {
+      block = true;
+      sections[[build[1], build[2].trim()].join(':')] = last = [];
+    }
+
+    // switch back block flag when endbuild
+    if(block && endbuild) {
+      last.push(l);
+      block = false;
+    }
+
+    if(block && last) {
+      last.push(l);
+    }
+  });
+
+  return sections;
+}
 
 module.exports = function( grunt ) {
   'use strict';
@@ -465,4 +496,103 @@ module.exports = function( grunt ) {
     return content;
   });
 
+  //override usemin-handler task
+  grunt.renameHelper('usemin-handler', 'original-usemin-handler');
+
+  grunt.registerMultiTask('usemin-handler', 'Using HTML markup as the primary source of information', function() {
+    // collect files
+    var files = grunt.file.expandFiles(this.data);
+
+    // concat / min / css / rjs config
+    var concat = grunt.config('concat') || {},
+      min = grunt.config('min') || {},
+      css = grunt.config('css') || {},
+      rjs = grunt.config('rjs') || {};
+
+    grunt.log
+      .writeln('Going through ' + grunt.log.wordlist(files) + ' to update the config')
+      .writeln('looking for build script HTML comment blocks');
+
+    files = files.map(function(filepath) {
+      return {
+        path: filepath,
+        body: grunt.file.read(filepath)
+      };
+    });
+
+    files.forEach(function(file) {
+      var blocks = getBlocks(file.body);
+      Object.keys(blocks).forEach(function(dest) {
+        var lines = blocks[dest].slice(1, -1),
+          parts = dest.split(':'),
+          type = parts[0],
+          output = parts[1];
+        // Handle absolute path (i.e. with respect to th eserver root)
+        if (output[0] === '/') {
+          output = output.substr(1);
+        }
+
+        // parse out the list of assets to handle, and update the grunt config accordingly
+        var assets = lines.map(function(tag) {
+          var asset = (tag.match(/\<\!--.*--\>/) || (tag.match(/(href|src)=["']([^'"]+)["']/) || []))[2];
+
+          // RequireJS uses a data-main attribute on the script tag to tell it
+          // to load up the main entry point of the amp app
+          //
+          // First time we findd one, we update the name / mainConfigFile
+          // values. If a name of mainConfigFile value are already set, we skip
+          // it, so only one match should happen and default config name in
+          // original Gruntfile is used if any.
+          var main = tag.match(/data-main=['"]([^'"]+)['"]/);
+          if(main) {
+            rjs.out = rjs.out || output;
+            rjs.name = rjs.name || main[1];
+            asset += ',' + output;
+          }
+
+          return asset;
+        }).reduce(function(a, b) {
+          b = ( b ? b.split(',') : '');
+          return a.concat(b);
+        }, []);
+
+        grunt.log.subhead('Found a block:')
+          .writeln(grunt.log.wordlist(lines, { separator: '\n' }))
+          .writeln('Updating config with the following assets:')
+          .writeln('    - ' + grunt.log.wordlist(assets, { separator: '\n    - ' }));
+
+        // update concat config for this block
+        concat[output] = assets;
+        grunt.config('concat', concat);
+
+        // update rjs config as well, as during path lookup we might have
+        // updated it on data-main attribute
+        grunt.config('rjs', rjs);
+
+        // min config, only for js type block
+        if(type === 'js') {
+          min[output] = output;
+          grunt.config('min', min);
+        }
+
+        // css config, only for css type block
+        if(type === 'css') {
+          css[output] = output;
+          grunt.config('css', css);
+        }
+      });
+    });
+
+    // log a bit what was added to config
+    grunt.log.subhead('Configuration is now:')
+      .subhead('  css:')
+      .writeln('  ' + grunt.helper('inspect', css))
+      .subhead('  concat:')
+      .writeln('  ' + grunt.helper('inspect', concat))
+      .subhead('  min:')
+      .writeln('  ' + grunt.helper('inspect', min))
+      .subhead('  rjs:')
+      .writeln('  ' + grunt.helper('inspect', rjs));
+
+  });
 };
