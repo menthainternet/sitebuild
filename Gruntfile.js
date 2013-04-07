@@ -235,22 +235,22 @@ module.exports = function( grunt ) {
   grunt.config('watch', {
     coffee: {
       files: 'app/scripts/**/*.coffee',
-      tasks: 'coffee mkdirs reload'
+      tasks: 'coffee mkdirs usemin-handler concat usemin reload'
     },
     compass: {
       files: 'app/styles/**/*.{scss,sass}',
-      tasks: 'compass mkdirs reload'
+      tasks: 'compass mkdirs usemin-handler concat usemin reload'
     },
     template: {
       files: 'app/templates/**/*',
-      tasks: 'template reload'
+      tasks: 'template usemin-handler concat usemin reload'
     },
     reload_css_js: {
       files: [
         'app/styles/**/*.css',
         'app/scripts/**/*.js'
       ],
-      tasks: 'mkdirs reload'
+      tasks: 'mkdirs usemin-handler concat usemin reload'
     },
     reload_others: {
       files: [
@@ -347,7 +347,7 @@ module.exports = function( grunt ) {
       // and our browser opened and refreshed both when developping
       // (app) and when writing tests (test)
       app: 'clean coffee compass open-browser watch',
-      prj: 'clean coffee compass mkdirs symlink open-browser watch',
+      prj: 'clean coffee compass mkdirs usemin-handler concat usemin symlink open-browser watch',
       test: 'clean coffee compass open-browser watch',
       // Before our headless tests are run, ensure our coffee
       // and compass are recompiled
