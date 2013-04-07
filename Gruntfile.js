@@ -235,25 +235,30 @@ module.exports = function( grunt ) {
   grunt.config('watch', {
     coffee: {
       files: 'app/scripts/**/*.coffee',
-      tasks: 'coffee mkdirs copy reload'
+      tasks: 'coffee mkdirs usemin-handler concat usemin cwd:base reload'
     },
     compass: {
       files: 'app/styles/**/*.{scss,sass}',
-      tasks: 'compass mkdirs copy reload'
+      tasks: 'compass mkdirs usemin-handler concat usemin cwd:base reload'
     },
     template: {
       files: 'app/templates/**/*',
-      tasks: 'template reload'
+      tasks: 'template cwd:staging usemin-handler concat usemin cwd:base reload'
     },
-    reload: {
+    reload_css_js: {
       files: [
         'app/styles/**/*.css',
-        'app/scripts/**/*.js',
+        'app/scripts/**/*.js'
+      ],
+      tasks: 'mkdirs usemin-handler concat usemin cwd:base reload'
+    },
+    reload_others: {
+      files: [
         'app/images/**/*.{gif,jpg,png}',
         'app/fonts/**/*',
         'app/multimedia/**/*'
       ],
-      tasks: 'mkdirs copy reload'
+      tasks: 'mkdirs cwd:base reload'
     }
   });
 
@@ -342,7 +347,7 @@ module.exports = function( grunt ) {
       // and our browser opened and refreshed both when developping
       // (app) and when writing tests (test)
       app: 'clean coffee compass open-browser watch',
-      prj: 'clean coffee compass mkdirs copy open-browser watch',
+      prj: 'clean coffee compass mkdirs usemin-handler concat usemin symlink open-browser watch',
       test: 'clean coffee compass open-browser watch',
       // Before our headless tests are run, ensure our coffee
       // and compass are recompiled
@@ -497,7 +502,7 @@ module.exports = function( grunt ) {
   });
 
   //override usemin-handler task
-  grunt.renameHelper('usemin-handler', 'original-usemin-handler');
+  grunt.renameTask('usemin-handler', 'original-usemin-handler');
 
   grunt.registerMultiTask('usemin-handler', 'Using HTML markup as the primary source of information', function() {
     // collect files
@@ -594,5 +599,31 @@ module.exports = function( grunt ) {
       .subhead('  rjs:')
       .writeln('  ' + grunt.helper('inspect', rjs));
 
+  });
+
+  // symlink task
+  grunt.registerTask('symlink', 'Links the staging(temp/) folder to output (dist/) one', function() {
+    this.requiresConfig('staging', 'output');
+
+    var config = grunt.config(),
+      cb = this.async();
+
+    grunt.file.setBase(config.base);
+
+    fs.symlink(config.staging, config.output, function(e) {
+      if ( e ) {
+        grunt.log.error( e.stack || e.message );
+      } else {
+        grunt.log.ok( path.resolve( config.staging ) + ' -> ' + path.resolve( config.output ) );
+      }
+      cb(!e);
+    });
+  });
+
+  // cwd task
+  grunt.registerTask('cwd', 'Change working directory task', function(target) {
+    target = target || 'base';
+
+    grunt.file.setBase(grunt.config(target));
   });
 };
