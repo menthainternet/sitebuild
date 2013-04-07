@@ -502,7 +502,7 @@ module.exports = function( grunt ) {
   });
 
   //override usemin-handler task
-  grunt.renameHelper('usemin-handler', 'original-usemin-handler');
+  grunt.renameTask('usemin-handler', 'original-usemin-handler');
 
   grunt.registerMultiTask('usemin-handler', 'Using HTML markup as the primary source of information', function() {
     // collect files
