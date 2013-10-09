@@ -30,7 +30,7 @@ $site-small-gutter: 10px;
 }
 
 @mixin reset-list {
-	@include reset-margin-padding;
+	@include reset-marginPadding;
 
 	list-style: none;
 }
