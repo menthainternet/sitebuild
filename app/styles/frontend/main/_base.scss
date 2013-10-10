@@ -1,10 +1,28 @@
 // H5BP defaults: https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults
 // @include h5bp-base-styles;
 
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
+	@include reset-marginPadding;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: $site-font-size;
+	font-weight: normal;
+	color: $site-font-color;
+	background-color: $site-background-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
 }
 
 a {
+	text-decoration: none;
+	cursor: pointer;
 }
 
 p {
@@ -13,7 +31,16 @@ p {
 input,
 select,
 textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	outline: none;
+}
+
+textarea {
+	resize: none;
 }
 
 hr {
+	height: 1px;
+	border: 0;
+	background: #999;
 }
