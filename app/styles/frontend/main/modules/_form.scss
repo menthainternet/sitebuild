@@ -1,0 +1,123 @@
+// input
+$form-input-width: 200px;
+$form-input-height: 32px;
+$form-input-paddingLeftRight: 5px;
+$form-input-paddingTopBottom: 5px;
+$form-input-borderWidth: 1px;
+$form-input-innerWidth: $form-input-width - ($form-input-paddingLeftRight * 2) - ($form-input-borderWidth * 2);
+$form-input-innerHeight: $form-input-height - ($form-input-paddingTopBottom * 2) - ($form-input-borderWidth * 2);
+$form-textarea-height: 100px;
+$form-row-marginBottom: 10px;
+
+// label
+$form-label-width: 150px;
+$form-label-marginTop: 8px;
+$form-label-marginRight: 5px;
+$form-label-lineHeight: $form-input-height + ($form-input-borderWidth * 2);
+$form-row-noLabel-leftMargin: $form-label-width + $form-label-marginRight;
+
+// colors
+$form-color-inputText: $site-font-color;
+$form-color-inputBkg: #fff;
+$form-color-inputBorder: $site-font-color;
+
+$form-color-errorText: #ff0000;
+$form-color-errorBkg: #fff;
+$form-color-errorBorder: #ff0000;
+
+.form {
+}
+
+.form-globalErrors {
+	@include reset-list;
+
+	margin-bottom: $form-row-marginBottom;
+
+	> li {
+		color: $form-color-errorText;
+	}
+}
+
+.form-row {
+	@include micro-clearfix;
+	//@include placeholder-color(#595959);
+
+	margin-bottom: $form-row-marginBottom;
+
+	> label {
+		float: left;
+		width: $form-label-width;
+		margin: $form-label-marginTop $form-label-marginRight 0 0;
+	}
+
+	> div {
+		@include micro-clearfix;
+
+		float: left;
+		width: $form-input-width;
+	}
+}
+
+.form-row--required {
+	> label {
+		&:after {
+			content: '*';
+		}
+	}
+}
+
+.from-row-control {
+	input,
+	select,
+	textarea {
+		@include dimension($form-input-innerWidth, $form-input-innerHeight);
+
+		padding: $form-input-paddingTopBottom $form-input-paddingLeftRight;
+		color: $form-color-inputText;
+		background-color: $form-color-inputBkg;
+		border: solid $form-input-borderWidth $form-color-inputBorder;
+	}
+
+	select {
+		@include dimension($form-input-width, $form-input-height);
+
+		padding: $form-input-paddingTopBottom $form-input-paddingLeftRight;
+	}
+
+	textarea {
+		height: $form-textarea-height;
+		padding: $form-input-paddingLeftRight;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		width: auto;
+	}
+}
+
+.form-row--error {
+	.form-row-control {
+		input,
+		textarea,
+		select {
+			color: $form-color-inputText;
+			//background-color: $form-color-errorBkg;
+			border: solid 1px $form-color-errorBorder;
+		}
+	}
+}
+
+.form-row-control-errors {
+	@include reset-list;
+
+	> li {
+		color: $form-color-errorText;
+	}
+}
+
+.form-row-help {
+}
+
+.form-row--submit {
+	margin-left: $form-row-noLabel-leftMargin;
+}
