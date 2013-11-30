@@ -1,0 +1,28 @@
+<!--
+
+usage:
+
+include 'partials/breadcrumb', {
+	items: [
+		{ itemTxt: 'Breadcumb 1', itemLinkTo: '#' }
+		{ itemTxt: 'Breadcumb 1-1', itemLinkTo: '#' }
+		{ itemTxt: 'Breadcumb 1-1-1' }
+	] }
+
+-->
+
+<nav class="breadcrumb">
+	<ul>
+<% for items in @items : %>
+		<li>
+<% if items.itemLinkTo : %>
+			<a href="#">
+<% end %>
+				<%- items.itemTxt %>
+<% if items.itemLinkTo : %>
+			</a>
+<% end %>
+		</li>
+<% end %>
+	</ul>
+</nav>
