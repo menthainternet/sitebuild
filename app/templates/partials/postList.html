@@ -1,0 +1,40 @@
+<!--
+
+usage:
+
+include 'partials/postList',	{
+	itemImgWidth: '100',
+	itemImgHeight: '100',
+	itemMore: 'Tovább',
+	itemLinkTo: 'valami.html',
+	items: [
+		{ itemTitle: 'Valami', itemImg: '/uploads/item_pic_01.jpg', itemTxt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare aliquam ultrices. Praesent suscipit ultricies egestas. Vestibulum rutrum risus justo, ac blandit massa pulvinar tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare aliquam ultrices. Praesent suscipit ultricies egestas. Vestibulum rutrum risus justo, ac blandit massa pulvinar tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare aliquam ultrices. Praesent suscipit ultricies egestas. Vestibulum rutrum risus justo, ac blandit massa pulvinar tempor.' },
+		{ itemTitle: 'Másvalami', itemTxt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+		{ itemTitle: 'Mégvalami', itemImg: '/uploads/item_pic_02.jpg', itemImgHeight: '150', itemTxt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+	] }
+
+-->
+
+
+<% block 'itemTitle' : %>Bejegyzés címe<% end %>
+<% block 'itemLinkTo' : %>#<% end %>
+<div class="postList">
+	<ul>
+<% for items in @items : %>
+		<li>
+<% if items.itemImg : %>
+			<a href="<%- if @itemLinkTo then @itemLinkTo else content 'itemLinkTo' %>"><img src="<%- items.itemImg %>" width="<%- @itemImgWidth %>" height="<%- if not items.itemImgHeight then @itemImgHeight else items.itemImgHeight %>" alt="kép címe"></a>
+<% end %>
+			<div class="postList-itemTxt<%- if not items.itemImg then ' postList-itemTxt--wide' else '' %>">
+				<div class="postList-itemTxt-content">
+					<h2><a href="<%- if @itemLinkTo then @itemLinkTo else content 'itemLinkTo' %>"><%- if items.itemTitle then items.itemTitle else content 'itemTitle' %></a></h2>
+					<p><%- items.itemTxt %></p>
+				</div>
+<% if @itemMore : %>
+				<a href="<%- if @itemLinkTo then @itemLinkTo else content 'itemLinkTo' %>"><%- @itemMore %></a>
+<% end %>
+			</div>
+		</li>
+<% end %>
+	</ul>
+</div>

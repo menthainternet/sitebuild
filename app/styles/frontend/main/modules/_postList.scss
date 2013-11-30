@@ -1,0 +1,68 @@
+$postList-item-paddingTopBottom: 10px;
+$postList-item-title-marginBottom: 10px;
+$postList-item-img-width: 100px;
+$postList-item-img-marginRight: 10px;
+$postList-itemTxt-width: 500px;
+$postList-itemWidth: $postList-item-img-width + $postList-item-img-marginRight + $postList-itemTxt-width;
+
+// color
+$postList-color-itemDivider: #999;
+
+
+.postList {
+	//width: 500px;
+	> ul {
+		@include reset-list;
+
+		> li {
+			@include micro-clearfix;
+
+			padding: $postList-item-paddingTopBottom 0;
+			border-bottom: solid 1px $postList-color-itemDivider;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			> a {
+				float: left;
+				margin-right: $postList-item-img-marginRight;
+
+				> img {
+					display: block;
+				}
+			}
+		}
+	}	
+}
+
+.postList-itemTxt {
+	float: left;
+	width: $postList-itemTxt-width;
+
+	// tovább
+	> a {
+		
+		&:hover {
+		}
+	}
+}
+
+.postList-itemTxt--wide {
+	width: $postList-itemWidth;
+}
+
+.postList-itemTxt-content {
+	> h2 {
+		margin: 0 0 $postList-item-title-marginBottom 0;
+	}
+
+	> p {
+
+	}
+}
