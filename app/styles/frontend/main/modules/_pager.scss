@@ -50,8 +50,12 @@ $pager-color-divider: #cbcbcb;
 }
 
 .pager-pages-itemSelected {
-	padding: 0 $pager-item-paddingLeftRight;
+	padding: 0 $pager-item-paddingLeftRight 0 0;
 	color: $pager-color-selectedPage;
+
+	&:before {
+		padding-right: $pager-item-paddingLeftRight;
+	}
 }
 
 .pager-nav {
