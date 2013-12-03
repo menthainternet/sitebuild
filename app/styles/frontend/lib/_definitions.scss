@@ -25,81 +25,81 @@ $site-small-gutter: 10px;
 // mixins
 
 @mixin reset-marginPadding {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 @mixin reset-list {
-	@include reset-marginPadding;
+  @include reset-marginPadding;
 
-	list-style: none;
+  list-style: none;
 }
 
 @mixin horizontal-list ($list-float, $item-float) {
-	@include micro-clearfix;
-	@include marginPadding;
+  @include micro-clearfix;
+  @include marginPadding;
 
-	float: $list-float;
-	list-style: none;
+  float: $list-float;
+  list-style: none;
 
-	> li {
-		float: $item-float;
-	}
+  > li {
+    float: $item-float;
+  }
 }
 
 @mixin font-format ($font-size, $font-weigth: auto) {
-	font-size: $font-size;
+  font-size: $font-size;
 
-	@if $font-weigth != auto {
-		font-weight: $font-weigth;
-	}
+  @if $font-weigth != auto {
+    font-weight: $font-weigth;
+  }
 }
 
 @mixin dimension ($element-width, $element-height) {
-	width: $element-width;
-	height: $element-height;
+  width: $element-width;
+  height: $element-height;
 }
 
 @mixin rgba-background ($r, $g, $b, $a) {
-	background-color: rgba($r, $g, $b, $a);
+  background-color: rgba($r, $g, $b, $a);
 
-	// IE
-	.lt-ie9 & {
-		@include css3pie;
+  // IE
+  .lt-ie9 & {
+    @include css3pie;
 
-		-pie-background: linear-gradient(rgba($r, $g, $b, $a), rgba($r, $g, $b, $a));
-	}
+    -pie-background: linear-gradient(rgba($r, $g, $b, $a), rgba($r, $g, $b, $a));
+  }
 }
 
 @mixin rgba-box-shadow ($r, $g, $b, $a, $h-off, $v-off, $blur: $default-box-shadow-blur, $spread: $default-box-shadow-spread, $inset: $default-box-shadow-inset) {
-	@include box-shadow(rgba($r, $g, $b, $a) $h-off $v-off $blur, $spread, $inset);
+  @include box-shadow(rgba($r, $g, $b, $a) $h-off $v-off $blur, $spread, $inset);
 
-	// IE
-	.lt-ie9 & {
-		@include css3pie;
-	}
+  // IE
+  .lt-ie9 & {
+    @include css3pie;
+  }
 }
 
 @mixin placeholder-color ($pcolor: #999) {
-	// WebKit browsers
-	::-webkit-input-placeholder {
-		color: $pcolor;
-	}
+  // WebKit browsers
+  ::-webkit-input-placeholder {
+    color: $pcolor;
+  }
 
-	// Mozilla Firefox 4 to 18
-	:-moz-placeholder {
-		color: $pcolor;
-	}
+  // Mozilla Firefox 4 to 18
+  :-moz-placeholder {
+    color: $pcolor;
+  }
 
-	// Mozilla Firefox 19+
-	::-moz-placeholder {
-		color: $pcolor;
-	}
+  // Mozilla Firefox 19+
+  ::-moz-placeholder {
+    color: $pcolor;
+  }
 
-	// Internet Explorer 10+
-	:-ms-input-placeholder {
-		color: $pcolor;
-	}
+  // Internet Explorer 10+
+  :-ms-input-placeholder {
+    color: $pcolor;
+  }
 }
 
 
@@ -107,9 +107,9 @@ $site-small-gutter: 10px;
 // functions
 
 @function columnWidth($module-width, $module-margin: false) {
-	@if ($module-margin == false) {
-		@return ($site-column-width * $module-width) + (($module-width - 1) * $site-column-gutter);
-	} @else {
-		@return ($site-column-width * $module-width) + ($module-width * $site-column-gutter);
-	}
+  @if ($module-margin == false) {
+    @return ($site-column-width * $module-width) + (($module-width - 1) * $site-column-gutter);
+  } @else {
+    @return ($site-column-width * $module-width) + ($module-width * $site-column-gutter);
+  }
 }
