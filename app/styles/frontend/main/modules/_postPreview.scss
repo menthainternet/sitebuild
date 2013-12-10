@@ -1,0 +1,46 @@
+$postPreview-title-marginBottom: 10px;
+$postPreview-img-width: 100px;
+$postPreview-img-marginRight: 10px;
+$postPreview-lead-width: 500px;
+$postPreview-width: $postPreview-img-width + $postPreview-img-marginRight + $postPreview-lead-width;
+
+.postPreview {
+	@include micro-clearfix;
+
+	//width: $postPreview-width;
+}
+
+.postPreview-imgLink {
+	float: left;
+	margin-right: $postPreview-img-marginRight;
+
+	> img {
+		display: block;
+	}
+}
+
+.postPreview-lead {
+	float: left;
+	width: $postPreview-lead-width;
+
+	// tovább
+	> a {
+
+		&:hover {
+		}
+	}
+}
+
+.postPreview-lead--wide {
+	width: $postPreview-width;
+}
+
+.postPreview-lead-content {
+	> h2 {
+		margin: 0 0 $postPreview-title-marginBottom 0;
+	}
+
+	> p {
+
+	}
+}

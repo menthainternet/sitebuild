@@ -1,0 +1,26 @@
+$posts-item-paddingTopBottom: 10px;
+
+// color
+$posts-color-itemDivider: #999;
+
+.posts {
+	> ul {
+		@include reset-list;
+
+		> li {
+			@include micro-clearfix;
+
+			padding: $posts-item-paddingTopBottom 0;
+			border-bottom: solid 1px $posts-color-itemDivider;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
