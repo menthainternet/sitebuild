@@ -210,6 +210,7 @@ $orbit-timer-hide-for-small: true !default;
             background-color: $orbit-caption-bg;
             color: $orbit-caption-font-color;
             width: 100%;
+            height: $orbit-caption-height;
             padding: $orbit-caption-padding;
             font-size: $orbit-caption-font-size;
           }

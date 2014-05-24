@@ -94,10 +94,6 @@ module.exports = function( grunt ) {
         files: 'app/styles/**/*.{scss,sass}',
         tasks: 'compass reload'
       },
-      foundation: {
-        files: 'app/components/foundation/**/*.{scss,sass}',
-        tasks: 'compass reload'
-      },
       template: {
         files: 'app/templates/**/*',
         tasks: 'template reload'
