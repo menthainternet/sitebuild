@@ -14,22 +14,22 @@
 <!-- Facebook JS SDK: change <% content 'config_facebook_app_id' %> and <% content 'config_facebook_channel_domain' %> to be your app's appId and site's domain respectively -->
 <div id="fb-root"></div>
 <script>
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId: '<% content 'config_facebook_app_id' %>',
-			channelUrl: '//<% content 'config_facebook_channel_domain' %>/channel_<% content 'config_locale' %>.html',
-			status: true,
-			cookie: true,
-			xfbml: true,
-			oauth: true
-		});
-	};
-	(function(d, debug){
-		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement('script'); js.id = id; js.async = true;
-		js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
-		ref.parentNode.insertBefore(js, ref);
-	}(document, /*debug*/ false));
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '<% content 'config_facebook_app_id' %>',
+      channelUrl: '//<% content 'config_facebook_channel_domain' %>/channel_<% content 'config_locale' %>.html',
+      status: true,
+      cookie: true,
+      xfbml: true,
+      oauth: true
+    });
+  };
+  (function(d, debug){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
+    ref.parentNode.insertBefore(js, ref);
+  }(document, /*debug*/ false));
 </script>
 <% end %>

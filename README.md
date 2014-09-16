@@ -17,6 +17,8 @@ $ bundle install
 $ npm install
 ```
 
+`composer.json`-ban át kell írni a projekt nevét (`project-name` és `Project name`)
+
 ### Fejlesztés könyvtár kiszolgálása
 
 ```
@@ -45,6 +47,7 @@ Használat közben folyamatosan másol mindent a `dist` könyvárba is, erre pé
 
 ## Konfig
 
+- `composer.json`: [Composer konfig](https://getcomposer.org/)
 - `package.json`: [npm és Node.js konfig](http://package.json.nodejitsu.com/) ([Grunt](http://gruntjs.com/) taskok függőségei)
 - `Gruntfile.js`: [Grunt taskok](https://github.com/gruntjs/grunt/wiki/Getting-started)
 - `Gemfile`, `Gemfile.lock`: [Bundler konfig](http://gembundler.com/#getting-started) ([Compass](http://compass-style.org/) és [pluginjei](http://compass-style.org/frameworks/))

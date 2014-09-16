@@ -2,4 +2,114 @@
 
 // variables
 
+$site-content-width: 960px;
+$site-content-padding: 10px;
+$site-content-innerWidth: $site-content-width - ($site-content-padding * 2);
+
+//$site-mainContent-width: ;
+//$site-mainContent-innerWidth: ;
+//$site-aside-width: $site-content-innerWidth - $site-mainContent-width;
+//$site-aside-innerWidth: ;
+
+$site-font-color: #333;
+$site-background-color: #fff;
+$site-font-size: 14px;
+
+$site-column-width: 60px;
+$site-column-gutter: 20px;
+$site-default-gutter: 20px;
+$site-small-gutter: 10px;
+
+
+
 // mixins
+
+@mixin reset-marginPadding {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin reset-list {
+  @include reset-marginPadding;
+
+  list-style: none;
+}
+
+@mixin horizontal-list ($list-float, $item-float) {
+  @include micro-clearfix;
+  @include marginPadding;
+
+  float: $list-float;
+  list-style: none;
+
+  > li {
+    float: $item-float;
+  }
+}
+
+@mixin font-format ($font-size, $font-weigth: auto) {
+  font-size: $font-size;
+
+  @if $font-weigth != auto {
+    font-weight: $font-weigth;
+  }
+}
+
+@mixin dimension ($element-width, $element-height) {
+  width: $element-width;
+  height: $element-height;
+}
+
+@mixin rgba-background ($r, $g, $b, $a) {
+  background-color: rgba($r, $g, $b, $a);
+
+  // IE
+  .lt-ie9 & {
+    @include css3pie;
+
+    -pie-background: linear-gradient(rgba($r, $g, $b, $a), rgba($r, $g, $b, $a));
+  }
+}
+
+@mixin rgba-box-shadow ($r, $g, $b, $a, $h-off, $v-off, $blur: $default-box-shadow-blur, $spread: $default-box-shadow-spread, $inset: $default-box-shadow-inset) {
+  @include box-shadow(rgba($r, $g, $b, $a) $h-off $v-off $blur, $spread, $inset);
+
+  // IE
+  .lt-ie9 & {
+    @include css3pie;
+  }
+}
+
+@mixin placeholder-color ($pcolor: #999) {
+  // WebKit browsers
+  ::-webkit-input-placeholder {
+    color: $pcolor;
+  }
+
+  // Mozilla Firefox 4 to 18
+  :-moz-placeholder {
+    color: $pcolor;
+  }
+
+  // Mozilla Firefox 19+
+  ::-moz-placeholder {
+    color: $pcolor;
+  }
+
+  // Internet Explorer 10+
+  :-ms-input-placeholder {
+    color: $pcolor;
+  }
+}
+
+
+
+// functions
+
+@function columnWidth($module-width, $module-margin: false) {
+  @if ($module-margin == false) {
+    @return ($site-column-width * $module-width) + (($module-width - 1) * $site-column-gutter);
+  } @else {
+    @return ($site-column-width * $module-width) + ($module-width * $site-column-gutter);
+  }
+}
