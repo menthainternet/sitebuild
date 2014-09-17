@@ -2,7 +2,11 @@
 
 ## Yeoman install
 
-- [OS X, Linux](https://github.com/yeoman/yeoman/wiki/Installation) (`curl -L https://github.com/yeoman/yeoman/raw/0.9.6/setup/install.sh | bash`)
+```
+npm install -g git://github.com/menthainternet/yeoman-cli.git
+```
+
+- [OS X, Linux](https://github.com/yeoman/yeoman/wiki/Installation) (`curl -L https://raw.githubusercontent.com/menthainternet/yeoman/mentha/setup/install.sh | bash`)
 - [Windows](http://decodize.com/css/installing-yeoman-front-end-development-stack-windows/)
 - [Windows issues](https://github.com/yeoman/yeoman/issues/216)
 
