@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: git://github.com/szinya/compass-twitter-bootstrap.git
-  revision: 81de543c5fa81ce14e3e26e7d7353993d1b5e3cc
-  tag: v2.3.1
+  revision: 025d4325cc65c29984b94b51f4ecd0b957f0d668
+  tag: v2.3.2
   specs:
-    compass_twitter_bootstrap (2.3.1)
+    compass_twitter_bootstrap (2.3.2)
       compass
 
 GEM
