@@ -14,20 +14,20 @@
 <!-- Facebook JS SDK: change <% content 'config_facebook_app_id' %> to be your app's appId -->
 <div id="fb-root"></div>
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId: '<% content 'config_facebook_app_id' %>',
-      status: true,
-      cookie: true,
-      xfbml: true
-    });
-  };
-  (function(d, debug){
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
-    ref.parentNode.insertBefore(js, ref);
-  }(document, /*debug*/ false));
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '<% content 'config_facebook_app_id' %>',
+            status: true,
+            cookie: true,
+            xfbml: true
+        });
+    };
+    (function(d, debug){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/<% content 'config_locale' %>/all" + (debug ? "/debug" : "") + ".js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document, /*debug*/ false));
 </script>
 <% end %>
