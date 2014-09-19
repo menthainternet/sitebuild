@@ -8,10 +8,10 @@
 <% %>
 <% block 'h5bp_title_metas' : %>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><% content 'title' %> - <% content 'config_site_name' %></title>
 <meta name="description" content="">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <% end %>
 <% %>
 <% block 'h5bp_main_css' : %>
@@ -45,9 +45,11 @@
 <% block 'h5bp_google_analytics' : %>
 <!-- Google Analytics: change <% content 'config_google_analytics_site_id' %> to be your site's ID. -->
 <script>
-  var _gaq=[['_setAccount','<% content 'config_google_analytics_site_id' %>'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','<% content 'config_google_analytics_site_id' %>');ga('send','pageview');
 </script>
 <% end %>

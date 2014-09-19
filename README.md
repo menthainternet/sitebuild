@@ -68,13 +68,14 @@ _* egyelőre pont az ellenkezője igaz: [https://github.com/yeoman/grunt-usemin/
 
 Könyvtár név: [package név]-[verzió]
 
-- `app/components/compass_twitter_bootstrap-2.3.1`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
+- `app/components/compass_twitter_bootstrap-2.3.2`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
 - `app/components/css3pie-1.0.0`: [CSS3 PIE](http://css3pie.com/) stable
 - `app/components/css3pie-2.0beta1`: [CSS3 PIE](http://css3pie.com/) beta
-- `app/components/html5-boilerplate-4.1.0`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
+- `app/components/html5-boilerplate-4.3.0`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
 - `app/components/iconic-4af32d470e`: [Iconic](http://www.somerandomdude.com/work/iconic/)
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
 - `app/components/jquery-1.9.1`: jQuery ([release notes](http://blog.jquery.com/2013/02/04/jquery-1-9-1-released/))
+- `app/components/jquery-1.11.1`: jQuery ([release notes](http://blog.jquery.com/2014/05/01/jquery-1-11-1-and-2-1-1-released/))
 - `app/components/jquery-placeholder-2.0.7`: [HTML5 Placeholder jQuery Plugin](https://github.com/mathiasbynens/jquery-placeholder)
 - `app/components/jquery-ui-1.10.0`: jQuery UI [release notes](http://blog.jqueryui.com/2013/01/jquery-ui-1-10-0/)
 - `app/components/modernizr-2.6.2`: [Modernizr](http://modernizr.com/) custom build
