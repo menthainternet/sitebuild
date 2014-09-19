@@ -21,10 +21,10 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-[*.yml]
+[*.js]
 indent_style = space
 indent_size = 2
 
-[Gruntfile.js]
+[*.yml]
 indent_style = space
 indent_size = 2
