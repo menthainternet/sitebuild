@@ -1,8 +1,7 @@
 source 'http://rubygems.org'
 
 # Compass
-gem 'compass', '0.12.2'
-gem 'oily_png', '1.0.3'
+gem 'compass', '1.0.1'
 
 # Compass plugins
 group :compass_plugins do
