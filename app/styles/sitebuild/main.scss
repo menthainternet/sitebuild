@@ -19,9 +19,35 @@
 // mixins
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
+    display: block;
+    padding: 2px 5px;
+    color: #2fc2f3;
+    text-decoration: none;
+
+    &:hover {
+        color: #fff;
+        background-color: #2fc2f3;
+        text-decoration: none;
+    }
+}
+
+h1 {
+    font-size: 30px;
+}
+
+ul {
+    margin: 0 0 40px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    width: 500px;
+    margin: auto;
 }
 
 @import "../shared/lib/helpers";
