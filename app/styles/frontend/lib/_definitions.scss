@@ -37,10 +37,9 @@ $site-small-gutter: 10px;
 
 @mixin horizontal-list ($list-float, $item-float) {
   @include micro-clearfix;
-  @include marginPadding;
+  @include reset-list;
 
   float: $list-float;
-  list-style: none;
 
   > li {
     float: $item-float;
