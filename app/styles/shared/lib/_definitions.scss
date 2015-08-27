@@ -6,19 +6,154 @@
 // @import "960/grid";
 // @import "susy";
 
-// variables before foundation settings
+// font import
+//@import url();
 
+
+// variables before foundation settings
+$color-font-primary: #222;
+
+$font-default: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-heading: $font-default;
 
 // foundation settings import
 @import "../../../components/foundation/scss/normalize.scss";
 @import "settings.scss";
 
 // variables after foundation settings
+$vertical-gutter: $column-gutter;
+$horizontal-gutter: $column-gutter;
 
+$color-body-bg: #fff;
+$color-h1: $color-font-primary;
+$color-h2: $color-h1;
+$color-h3: $color-h1;
+$color-h4: $color-h1;
+$color-h5: $color-h1;
+$color-h6: $color-h1;
+
+$color-a: #0000ff;
+$color-divider: #ccc;
 
 // mixins
 
 @mixin css3pie {
   behavior: url(/components/css3pie-1.0.0/PIE.htc);
 //  behavior: url(/components/css3pie-2.0beta1/PIE.htc);
+}
+
+// base style mixins
+
+@mixin body-style {
+    padding: 0;
+    margin: 0;
+    color: $color-font-primary;
+    font-family: $font-default;
+    line-height: 150%;
+    background-color: $color-body-bg;
+}
+
+@mixin heading-style ( $h-color, $h-font-size-small, $h-font-size-medium ) {
+    margin: 0 0 $horizontal-gutter * 1.5 0;
+    font-family: $font-heading;
+    font-weight: normal;
+    line-height: 1.4;
+
+    // parameters
+    color: $h-color;
+    font-size: rem-calc($h-font-size-small);
+
+    @media #{$medium-up} {
+        font-size: rem-calc($h-font-size-medium);
+    }
+}
+
+@mixin h1-style {
+    @include heading-style($color-h1, 34, 44);
+}
+
+@mixin h2-style {
+    @include heading-style($color-h2, 27, 37);
+}
+
+@mixin h3-style {
+    @include heading-style($color-h3, 22, 27);
+}
+
+@mixin h4-style {
+    @include heading-style($color-h4, 18, 23);
+}
+
+@mixin h5-style {
+    @include heading-style($color-h5, 18, 18);
+}
+
+@mixin h6-style {
+    @include heading-style($color-h6, 16, 16);
+}
+
+@mixin a-style {
+    color: $color-a;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@mixin hr-style {
+    height: 1px;
+    margin: 0;
+    border: 0;
+    background: $color-divider;
+}
+
+@mixin p-style {
+    margin: 0 0 $column-gutter 0;
+}
+
+// wisywygText mixins
+
+@mixin wysiwygText-body {
+    @include body-style;
+}
+
+@mixin wysiwygText-h1 {
+    @include h1-style;
+}
+
+@mixin wysiwygText-h2 {
+    @include h2-style;
+}
+
+@mixin wysiwygText-h3 {
+    @include h3-style;
+}
+
+@mixin wysiwygText-h4 {
+    @include h4-style;
+}
+
+@mixin wysiwygText-h5 {
+    @include h5-style;
+}
+
+@mixin wysiwygText-h6 {
+    @include h6-style;
+}
+
+@mixin wysiwygText-a {
+    @include a-style;
+}
+
+@mixin wysiwygText-p {
+    @include p-style;
+}
+
+@mixin wysiwygText-img {
+    margin: $column-gutter;
+}
+
+@mixin wysiwygText-hr {
+    @include hr-style;
 }

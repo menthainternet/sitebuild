@@ -1,0 +1,45 @@
+// wysiwygText mixins defined: styles/shared/lib/definitions
+
+.wysiwygText {
+    @include wysiwygText-body;
+
+    p {
+        @include wysiwygText-p;
+    }
+
+    a {
+        @include wysiwygText-a;
+    }
+
+    h1 {
+        @include wysiwygText-h1;
+    }
+
+    h2 {
+        @include wysiwygText-h2;
+    }
+
+    h3 {
+        @include wysiwygText-h3;
+    }
+
+    h4 {
+        @include wysiwygText-h4;
+    }
+
+    h5 {
+        @include wysiwygText-h5;
+    }
+
+    h6 {
+        @include wysiwygText-h6;
+    }
+
+    img {
+        @include wysiwygText-img;
+    }
+
+    hr {
+        @include wysiwygText-hr;
+    }
+}

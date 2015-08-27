@@ -73,7 +73,10 @@
 @import "main/base";
 @import "main/layout";
 
-// @import "main/modules/module";
+// predefined modules
+@import "main/modules/wysiwygText";
+
+// modules
 
 @import "main/state";
 
