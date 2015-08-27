@@ -5,9 +5,16 @@
 // @import "font-stacks";
 // @import "960/grid";
 // @import "susy";
+
+// variables before foundation settings
+
+
+// foundation settings import
+@import "../../../components/foundation/scss/normalize.scss";
 @import "settings.scss";
 
-// variables
+// variables after foundation settings
+
 
 // mixins
 
