@@ -15,6 +15,7 @@ $color-font-primary: #222;
 
 $font-default: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 $font-heading: $font-default;
+$font-btn: $font-default;
 
 // foundation settings import
 @import "../../../components/foundation/scss/normalize.scss";

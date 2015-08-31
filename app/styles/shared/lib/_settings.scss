@@ -382,7 +382,7 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 // We use this to control border radius
 // $alert-radius: $global-radius;
 
-// $alert-transition-speed: 300ms;
+$alert-transition-speed: 600ms; // 300ms;
 // $alert-transition-ease: ease-out;
 
 // 03. Block Grid

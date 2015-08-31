@@ -10,7 +10,7 @@
 //@import "../../components/foundation/scss/foundation/components/block-grid";
 //@import "../../components/foundation/scss/foundation/components/breadcrumbs";
 //@import "../../components/foundation/scss/foundation/components/button-groups";
-//@import "../../components/foundation/scss/foundation/components/buttons";
+@import "../../components/foundation/scss/foundation/components/buttons";
 //@import "../../components/foundation/scss/foundation/components/clearing";
 //@import "../../components/foundation/scss/foundation/components/dropdown";
 //@import "../../components/foundation/scss/foundation/components/dropdown-buttons";
@@ -76,6 +76,7 @@
 // predefined modules
 @import "main/modules/wysiwygText";
 @import "main/modules/flashMessage";
+@import "main/modules/btn";
 
 // modules
 

@@ -1,0 +1,90 @@
+// built on foundation button component
+// import needed in main.scss
+
+// btn colors
+$color-btn-txt: #fff;
+$color-btn-bg: #666;
+$color-btn-bg-hover: none;
+$color-btn-bg-hover-lightness: 10%;
+
+// btn properties
+$btn-font-family: $font-btn;
+$btn-radius: 4px;
+$btn-txt-uppercase: true;
+$btn-shadow: true;
+
+// btn transitions
+$btn-transition-duration: .15s cubic-bezier(.4,0,.2,1);
+$btn-transition-properties: background-color;
+
+
+@mixin btn-transitions ($css-properties) {
+    -webkit-transition-duration: $btn-transition-duration;
+    transition-duration: $btn-transition-duration;
+    -webkit-transition-property: $css-properties;
+    transition-property: $css-properties;
+}
+
+@mixin set-btn-shadow ( $depth: depth-01 ) {
+    @if ( $depth == none ) {
+        box-shadow: none;
+    }
+
+    @if ( $depth == depth-01 ) {
+        box-shadow: 0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.33);
+    }
+
+    @if ( $depth == depth-02 ) {
+        box-shadow: 0 0 3px rgba(0,0,0,.23),0 3px 6px rgba(0,0,0,.36);
+    }
+}
+
+
+// btn defaults
+
+.btn {
+    @include button($padding: false, $bg: false, $radius: $btn-radius);
+
+    @if ($btn-shadow) {
+        @include set-btn-shadow(depth-01);
+
+        $btn-transition-properties: $btn-transition-properties + ', box-shadow';
+    }
+
+    @include btn-transitions($btn-transition-properties);
+
+    padding: 1rem 2rem 0.9rem;
+    margin: 0;
+    font-size: 1rem;
+    color: $color-btn-txt;
+    background-color: $color-btn-bg;
+
+    @if ($btn-txt-uppercase) {
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        text-decoration: none;
+
+        @if ($color-btn-bg-hover != none) and ($color-btn-bg-hover != false) {
+            background-color: $color-btn-bg-hover;
+        } @else {
+            background-color: scale-color($color-btn-bg, $lightness: $color-btn-bg-hover-lightness);
+        }
+
+        @if ($btn-shadow) {
+            @include set-btn-shadow(depth-02);
+        }
+    }
+}
+
+
+// btn modifiers
+
+.btn--fullWidth {
+    width: 100%;
+}
+
+.btn--thin {
+    padding: 0.5rem 1rem 0.4rem;
+}
