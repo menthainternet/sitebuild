@@ -3,7 +3,7 @@
 var $ = global.jQuery;
 $(function () {
 
-  //$(document).foundation();
+  $(document).foundation();
 
 });
 })(this);

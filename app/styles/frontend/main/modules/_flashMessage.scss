@@ -1,0 +1,35 @@
+$color-flashMessage--success: #0000ff;
+$color-flashMessage--alert: #ff0000;
+$color-flashMessage--info: #00ff00;
+
+.flashMessage {
+    @include alert-base;
+    @include radius(0);
+
+    margin-bottom: 0;
+    text-align: center;
+
+    .close {
+        @include alert-close;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &.alert-close {
+        opacity: 0
+    }
+}
+
+.flashMessage--success {
+    @include alert-style($color-flashMessage--success);
+}
+
+.flashMessage--alert {
+    @include alert-style($color-flashMessage--alert);
+}
+
+.flashMessage--info {
+    @include alert-style($color-flashMessage--info);
+}
