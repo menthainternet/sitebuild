@@ -8,7 +8,7 @@ $color-btn-bg-hover: none;
 $color-btn-bg-hover-lightness: 10%;
 
 // btn properties
-$btn-font-family: $font-btn;
+$btn-font-family: font(btn);
 $btn-radius: 4px;
 $btn-txt-uppercase: true;
 $btn-shadow: true;

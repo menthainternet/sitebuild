@@ -42,7 +42,7 @@ p {
 input,
 select,
 textarea {
-    font-family: $font-default;
+    font-family: font(default);
 }
 
 hr {
