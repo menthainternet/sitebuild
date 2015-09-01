@@ -1,0 +1,17 @@
+<% if @blockgrid : %>
+    <ul class="<%- @blockgrid %>"<%- if @dataclearing then ' data-clearing' %>>
+<% else : %>
+<ul class="list<%- if @modifier then ' ' + @modifier %>">
+<% end %>
+<% for item in @items : %>
+    <li>
+        <% include 'partials/' + @call, {
+            params: @params,
+            item: item
+        } %>
+    </li>
+<% if @customdivider : %>
+    <li class="list-item-customdivider"></li>
+<% end %>
+<% end %>
+</ul>

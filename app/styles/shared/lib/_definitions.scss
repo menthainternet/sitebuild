@@ -51,6 +51,7 @@ $colors: (
 $gutters: (
     vertical: $column-gutter,
     horizontal: $column-gutter,
+    small: $column-gutter / 2,
     big: $column-gutter * 2,
     x-big: $column-gutter * 3,
 );
