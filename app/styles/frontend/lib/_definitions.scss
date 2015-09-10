@@ -53,4 +53,13 @@
   }
 }
 
+@mixin remove-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+}
+
 // functions
