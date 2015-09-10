@@ -73,12 +73,14 @@
 @import "main/base";
 @import "main/layout";
 
-// predefined modules
+// permanent predefined modules
 @import "main/modules/wysiwygText";
 @import "main/modules/flashMessage";
 @import "main/modules/btn";
 @import "main/modules/list";
 
+// additional predefined modules
+@import "main/modules/responsiveMenu";
 
 // modules
 

@@ -17,6 +17,7 @@ $fonts: (
     default: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
     heading: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
     btn: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
+    menu: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
 );
 
 $font-weights: (
@@ -49,6 +50,7 @@ $colors: (
 
 // variables after foundation settings
 $gutters: (
+    default: $column-gutter,
     vertical: $column-gutter,
     horizontal: $column-gutter,
     small: $column-gutter / 2,
