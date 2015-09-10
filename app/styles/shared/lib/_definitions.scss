@@ -12,13 +12,22 @@
 
 // variables before foundation settings
 
-
 $fonts: (
     default: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
     heading: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
     btn: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
     menu: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
 );
+
+// function for font map
+@function font($key) {
+    @if map-has-key($fonts, $key) {
+        @return map-get($fonts, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $fonts.";
+    @return null;
+}
 
 $font-weights: (
     thin: 100,
@@ -30,6 +39,16 @@ $font-weights: (
     extrabold: 800,
     ultrabold: 900,
 );
+
+// function for font-weights map
+@function font-weight($key) {
+    @if map-has-key($font-weights, $key) {
+        @return map-get($font-weights, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $font-weights.";
+    @return null;
+}
 
 $colors: (
     body-bg: #fff,
@@ -44,9 +63,21 @@ $colors: (
     divider: #ccc,
 );
 
+// function for colors map
+@function color($key) {
+    @if map-has-key($colors, $key) {
+        @return map-get($colors, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+
 // foundation settings import
 @import "../../../components/foundation/scss/normalize.scss";
 @import "settings.scss";
+
 
 // variables after foundation settings
 $gutters: (
@@ -58,38 +89,6 @@ $gutters: (
     x-big: $column-gutter * 3,
 );
 
-// mixins
-
-// function for font map
-@function font($key) {
-    @if map-has-key($fonts, $key) {
-        @return map-get($fonts, $key);
-    }
-
-    @warn "Unknown `#{$key}` in $fonts.";
-    @return null;
-}
-
-// function for font-weights map
-@function font-weight($key) {
-    @if map-has-key($font-weights, $key) {
-        @return map-get($font-weights, $key);
-    }
-
-    @warn "Unknown `#{$key}` in $font-weights.";
-    @return null;
-}
-
-// function for colors map
-@function color($key) {
-    @if map-has-key($colors, $key) {
-        @return map-get($colors, $key);
-    }
-
-    @warn "Unknown `#{$key}` in $colors.";
-    @return null;
-}
-
 // function for gutter map
 @function gutter($key) {
     @if map-has-key($gutters, $key) {
@@ -100,9 +99,11 @@ $gutters: (
     @return null;
 }
 
-// base style mixins
+// mixins
 
-@mixin body-style {
+// base style placeholders and mixins
+
+%body-style {
     padding: 0;
     margin: 0;
     color: color(font-primary);
@@ -111,11 +112,15 @@ $gutters: (
     background-color: color(body-bg);
 }
 
-@mixin heading-style ( $h-color, $h-font-size-small, $h-font-size-medium ) {
+%heading-style-constants {
     margin: 0 0 gutter(horizontal) * 1.5 0;
     font-family: font(heading);
     font-weight: normal;
     line-height: 1.4;
+}
+
+@mixin heading-style ( $h-color, $h-font-size-small, $h-font-size-medium ) {
+    @extends %heading-style-constants;
 
     // parameters
     color: $h-color;
@@ -126,31 +131,31 @@ $gutters: (
     }
 }
 
-@mixin h1-style {
+%h1-style {
     @include heading-style(color(h1), 34, 44);
 }
 
-@mixin h2-style {
+%h2-style {
     @include heading-style(color(h2), 27, 37);
 }
 
-@mixin h3-style {
+%h3-style {
     @include heading-style(color(h3), 22, 27);
 }
 
-@mixin h4-style {
+%h4-style {
     @include heading-style(color(h4), 18, 23);
 }
 
-@mixin h5-style {
+%h5-style {
     @include heading-style(color(h5), 18, 18);
 }
 
-@mixin h6-style {
+%h6-style {
     @include heading-style(color(h6), 16, 16);
 }
 
-@mixin a-style {
+%a-style {
     color: color(a);
     text-decoration: none;
 
@@ -159,59 +164,59 @@ $gutters: (
     }
 }
 
-@mixin hr-style {
+%hr-style {
     height: 1px;
     margin: 0;
     border: 0;
     background: color(divider);
 }
 
-@mixin p-style {
+%p-style {
     margin: 0 0 gutter(horizontal) 0;
 }
 
 // wisywygText mixins
 
-@mixin wysiwygText-body {
-    @include body-style;
+%wysiwygText-body {
+    @extend %body-style;
 }
 
-@mixin wysiwygText-h1 {
-    @include h1-style;
+%wysiwygText-h1 {
+    @extend %h1-style;
 }
 
-@mixin wysiwygText-h2 {
-    @include h2-style;
+%wysiwygText-h2 {
+    @extend %h2-style;
 }
 
-@mixin wysiwygText-h3 {
-    @include h3-style;
+%wysiwygText-h3 {
+    @extend %h3-style;
 }
 
-@mixin wysiwygText-h4 {
-    @include h4-style;
+%wysiwygText-h4 {
+    @extend %h4-style;
 }
 
-@mixin wysiwygText-h5 {
-    @include h5-style;
+%wysiwygText-h5 {
+    @extend %h5-style;
 }
 
-@mixin wysiwygText-h6 {
-    @include h6-style;
+%wysiwygText-h6 {
+    @extend %h6-style;
 }
 
-@mixin wysiwygText-a {
-    @include a-style;
+%wysiwygText-a {
+    @extend %a-style;
 }
 
-@mixin wysiwygText-p {
-    @include p-style;
+%wysiwygText-p {
+    @extend %p-style;
 }
 
-@mixin wysiwygText-img {
+%wysiwygText-img {
     margin: gutter(vertical);
 }
 
-@mixin wysiwygText-hr {
-    @include hr-style;
+%wysiwygText-hr {
+    @extend %hr-style;
 }

@@ -14,7 +14,7 @@ $list-item-bg: #fff;
 }
 
 .list {
-    @include reset-list;
+    @extend %reset-list;
 
     > li {
         @include vertical-list-gutter;

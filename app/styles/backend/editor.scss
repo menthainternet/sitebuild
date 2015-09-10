@@ -10,43 +10,43 @@
 // mixins
 
 body {
-    @include wysiwygText-body;
+    @extend %wysiwygText-body;
 }
 
 h1 {
-    @include wysiwygText-h1;
+    @extend %wysiwygText-h1;
 }
 
 h2 {
-    @include wysiwygText-h2;
+    @extend %wysiwygText-h2;
 }
 
 h3 {
-    @include wysiwygText-h3;
+    @extend %wysiwygText-h3;
 }
 
 h4 {
-    @include wysiwygText-h4;
+    @extend %wysiwygText-h4;
 }
 
 h5 {
-    @include wysiwygText-h5;
+    @extend %wysiwygText-h5;
 }
 
 h6 {
-    @include wysiwygText-h6;
+    @extend %wysiwygText-h6;
 }
 
 a {
-    @include wysiwygText-a;
+    @extend %wysiwygText-a;
 }
 
 p {
-    @include wysiwygText-p;
+    @extend %wysiwygText-p;
 }
 
 hr {
-    @include wysiwygText-hr;
+    @extend %wysiwygText-hr;
 }
 
 @import "../shared/lib/helpers";

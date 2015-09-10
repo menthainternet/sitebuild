@@ -2,22 +2,34 @@
 
 // variables
 
-// mixins
 
-@mixin reset-marginPadding {
+// placeholders
+%remove-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+}
+
+%reset-marginPadding {
     padding: 0;
     margin: 0;
 }
 
-@mixin reset-list {
-    @include reset-marginPadding;
+%reset-list {
+    @extend %reset-marginPadding;
 
     list-style: none;
 }
 
+// mixins
+
 @mixin horizontal-list ($list-float, $item-float) {
+    @extend %reset-list;
+
     @include micro-clearfix;
-    @include reset-list;
 
     float: $list-float;
 
@@ -53,13 +65,5 @@
   }
 }
 
-@mixin remove-scrollbar {
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-
-    &::-webkit-scrollbar {
-        width: 0 !important
-    }
-}
 
 // functions

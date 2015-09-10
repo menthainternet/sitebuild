@@ -124,7 +124,7 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
     }
 
     ul {
-        @include reset-list;
+        @extend %reset-list;
 
         display: none;
         line-height: 1.2;
@@ -228,12 +228,6 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
                 margin-right: -5px; // remove space between inline-block elements
             }
 
-            &:hover {
-                .responsiveMenu-level02 {
-                    //display: block;
-                }
-            }
-
             ul {
                 position: absolute;
             }
@@ -247,13 +241,6 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
             > li {
                 position: relative;
 
-                /*&:hover {
-                    .responsiveMenu-level03 {
-                        top: 0;
-                        left: 100%;
-                        display: block;
-                    }
-                }*/
             }
         }
     }

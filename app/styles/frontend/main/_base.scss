@@ -4,40 +4,40 @@
 // base mixins defined: styles/shared/lib/definitions
 
 body {
-    @include body-style;
-    //@include remove-scrollbar;
+    @extend %body-style;
+    @extend %remove-scrollbar;
 }
 
 h1 {
-    @include h1-style;
+    @extend %h1-style;
 }
 
 h2 {
-    @include h2-style;
+    @extend %h2-style;
 }
 
 h3 {
-    @include h3-style;
+    @extend %h3-style;
 }
 
 h4 {
-    @include h4-style;
+    @extend %h4-style;
 }
 
 h5 {
-    @include h5-style;
+    @extend %h5-style;
 }
 
 h6 {
-    @include h6-style;
+    @extend %h6-style;
 }
 
 a {
-    @include a-style;
+    @extend %a-style;
 }
 
 p {
-    @include p-style;
+    @extend %p-style;
 }
 
 input,
@@ -47,5 +47,5 @@ textarea {
 }
 
 hr {
-    @include hr-style;
+    @extend %hr-style;
 }

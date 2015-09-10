@@ -17,26 +17,24 @@ $btn-shadow: true;
 $btn-transition-duration: .15s cubic-bezier(.4,0,.2,1);
 $btn-transition-properties: background-color;
 
+// shadows
+
+%shadow-btn-depth-01 {
+    box-shadow: 0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.33);
+}
+
+%shadow-btn-depth-02 {
+    box-shadow: 0 0 3px rgba(0,0,0,.23),0 3px 6px rgba(0,0,0,.36);
+}
+
+
+// mixins
 
 @mixin btn-transitions ($css-properties) {
     -webkit-transition-duration: $btn-transition-duration;
     transition-duration: $btn-transition-duration;
     -webkit-transition-property: $css-properties;
     transition-property: $css-properties;
-}
-
-@mixin set-btn-shadow ( $depth: depth-01 ) {
-    @if ( $depth == none ) {
-        box-shadow: none;
-    }
-
-    @if ( $depth == depth-01 ) {
-        box-shadow: 0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.33);
-    }
-
-    @if ( $depth == depth-02 ) {
-        box-shadow: 0 0 3px rgba(0,0,0,.23),0 3px 6px rgba(0,0,0,.36);
-    }
 }
 
 
@@ -46,7 +44,7 @@ $btn-transition-properties: background-color;
     @include button($padding: false, $bg: false, $radius: $btn-radius);
 
     @if ($btn-shadow) {
-        @include set-btn-shadow(depth-01);
+        @extend %shadow-btn-depth-01;
 
         $btn-transition-properties: $btn-transition-properties + ', box-shadow';
     }
@@ -73,7 +71,7 @@ $btn-transition-properties: background-color;
         }
 
         @if ($btn-shadow) {
-            @include set-btn-shadow(depth-02);
+            @extend %shadow-btn-depth-02;
         }
     }
 }
