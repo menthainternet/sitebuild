@@ -112,15 +112,11 @@ $gutters: (
     background-color: color(body-bg);
 }
 
-%heading-style-constants {
+@mixin heading-style ( $h-color, $h-font-size-small, $h-font-size-medium ) {
     margin: 0 0 gutter(horizontal) * 1.5 0;
     font-family: font(heading);
     font-weight: normal;
     line-height: 1.4;
-}
-
-@mixin heading-style ( $h-color, $h-font-size-small, $h-font-size-medium ) {
-    @extends %heading-style-constants;
 
     // parameters
     color: $h-color;
