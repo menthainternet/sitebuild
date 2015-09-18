@@ -14,12 +14,14 @@ $responsiveMenu-font: font(menu);
     //properties
     $responsiveMenu-root-padding: 10px 30px 10px 30px;
     $responsiveMenu-root-fullWidth: true; // it works when $responsiveMenu-align is full width
+    $responsiveMenu-root-fontSize: rem-calc(18);
     $responsiveMenu-root-text-align: left; // it works when $responsiveMenu-root-fullWidth is true
     $responsiveMenu-root-hamburger: false; // set true if needed and write set-icon-hamburger mixin
     $responsiveMenu-root-uppercase: true;
 
 // submenus
 $responsiveMenu-divider: solid 1px color(divider); // set none or false to disable
+$responsiveMenu-uppercase: true;
 
 // level 01
     // colors
@@ -32,7 +34,7 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
     $responsiveMenu-mobileOverlay: true; // submenus inherit this
     $responsiveMenu-mobileOverlay-fullWidth: true; // it works when $responsiveMenu-mobileOverlay is true
     $responsiveMenu-level01-align-desktop: left;
-    $responsiveMenu-level01-itemPadding-mobile: 3px 10px;
+    $responsiveMenu-level01-itemPadding-mobile: 8px 10px;
     $responsiveMenu-level01-itemPadding-desktop: 15px 20px;
     $responsiveMenu-level01-fontSize-mobile: rem-calc(20);
     $responsiveMenu-level01-fontSize-desktop: rem-calc(22);
@@ -129,6 +131,10 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
         display: none;
         line-height: 1.2;
 
+        @if $responsiveMenu-uppercase {
+            text-transform: uppercase;
+        }
+
         li {
             white-space: nowrap;
         }
@@ -143,6 +149,7 @@ $responsiveMenu-divider: solid 1px color(divider); // set none or false to disab
     cursor: pointer;
     padding: $responsiveMenu-root-padding;
     color: $responsiveMenu-root-color;
+    font-size: $responsiveMenu-root-fontSize;
     text-align: $responsiveMenu-root-text-align;
     background-color: $responsiveMenu-root-bg;
 
