@@ -31,10 +31,8 @@ $btn-transition-properties: background-color;
 // mixins
 
 @mixin btn-transitions ($css-properties) {
-    -webkit-transition-duration: $btn-transition-duration;
-    transition-duration: $btn-transition-duration;
-    -webkit-transition-property: $css-properties;
-    transition-property: $css-properties;
+    -webkit-transition: $css-properties $btn-transition-duration;
+    transition: $css-properties $btn-transition-duration;
 }
 
 
@@ -44,12 +42,12 @@ $btn-transition-properties: background-color;
     @include button($padding: false, $bg: false, $radius: $btn-radius);
 
     @if ($btn-shadow) {
+        @include btn-transitions($btn-transition-properties + ', box-shadow');
+
         @extend %shadow-btn-depth-01;
-
-        $btn-transition-properties: $btn-transition-properties + ', box-shadow';
+    } @else {
+        @include btn-transitions($btn-transition-properties);
     }
-
-    @include btn-transitions($btn-transition-properties);
 
     padding: 1rem 2rem 0.9rem;
     margin: 0;
