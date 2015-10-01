@@ -14,8 +14,9 @@ $btn-txt-uppercase: true;
 $btn-shadow: true;
 
 // btn transitions
-$btn-transition-duration: .15s cubic-bezier(.4,0,.2,1);
+$btn-transition-duration: $default-transition-duration / 2;
 $btn-transition-properties: background-color;
+$btn-transition-timing-function: $default-transition-timing-function;
 
 // shadows
 
@@ -31,8 +32,9 @@ $btn-transition-properties: background-color;
 // mixins
 
 @mixin btn-transitions ($css-properties) {
-    -webkit-transition: $css-properties $btn-transition-duration;
-    transition: $css-properties $btn-transition-duration;
+    @include transition-property($css-properties);
+    @include transition-duration($btn-transition-duration);
+    @include transition-timing-function($btn-transition-timing-function);
 }
 
 

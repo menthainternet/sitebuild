@@ -68,8 +68,24 @@
 
 // @import "frontend/sprites/*.png";
 
-// mixins
+// placeholders and mixins
+%shadow-depth-01 {
+    box-shadow: 0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.33);
+}
 
+%shadow-depth-02 {
+    box-shadow: 0 0 3px rgba(0,0,0,.23),0 3px 6px rgba(0,0,0,.36);
+}
+
+$default-transition-duration: 0.3s;
+$default-transition-timing-function: cubic-bezier(.4,0,.2,1);
+@mixin set-transitions ($css-properties...) {
+    @include transition-property($css-properties);
+    @include transition-duration($default-transition-duration);
+    @include transition-timing-function($default-transition-timing-function);
+}
+
+// module imports
 @import "main/base";
 @import "main/layout";
 

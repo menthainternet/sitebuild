@@ -15,11 +15,13 @@ $responsiveMenu-font: font(menu);
     $responsiveMenu-root-padding: 10px 30px 10px 30px;
     $responsiveMenu-root-fullWidth: true; // it works when $responsiveMenu-align is full width
     $responsiveMenu-root-fontSize: rem-calc(18);
-    $responsiveMenu-root-text-align: left; // it works when $responsiveMenu-root-fullWidth is true
+    $responsiveMenu-root-fontWight: font-weight(bold);
+    $responsiveMenu-root-text-align: right; // it works when $responsiveMenu-root-fullWidth is true
     $responsiveMenu-root-hamburger: false; // set true if needed and write set-icon-hamburger mixin
     $responsiveMenu-root-uppercase: true;
 
 // submenus
+$responsiveMenu-fontWight: font-weight(normal);
 $responsiveMenu-divider: solid 1px color(divider); // set none or false to disable
 $responsiveMenu-uppercase: true;
 
@@ -29,15 +31,16 @@ $responsiveMenu-uppercase: true;
     $responsiveMenu-level01-color: #222;
     $responsiveMenu-level01-bg-hover: #eee;
     $responsiveMenu-level01-color-hover: #333;
+    $responsiveMenu-level01-bg-transparent-desktop: false;
 
     // properties
     $responsiveMenu-mobileOverlay: true; // submenus inherit this
     $responsiveMenu-mobileOverlay-fullWidth: true; // it works when $responsiveMenu-mobileOverlay is true
     $responsiveMenu-level01-align-desktop: left;
-    $responsiveMenu-level01-itemPadding-mobile: 8px 10px;
+    $responsiveMenu-level01-itemPadding-mobile: 15px 10px;
     $responsiveMenu-level01-itemPadding-desktop: 15px 20px;
-    $responsiveMenu-level01-fontSize-mobile: rem-calc(20);
-    $responsiveMenu-level01-fontSize-desktop: rem-calc(22);
+    $responsiveMenu-level01-fontSize-mobile: rem-calc(16);
+    $responsiveMenu-level01-fontSize-desktop: rem-calc(14);
 
 // level 02
     // colors
@@ -47,10 +50,10 @@ $responsiveMenu-uppercase: true;
     $responsiveMenu-level02-color-hover: #444;
 
     // properties
-    $responsiveMenu-level02-itemPadding-mobile: 3px 10px 3px 20px;
+    $responsiveMenu-level02-itemPadding-mobile: 15px 10px 15px 20px;
     $responsiveMenu-level02-itemPadding-desktop: 10px 30px;
     $responsiveMenu-level02-fontSize-mobile: rem-calc(16);
-    $responsiveMenu-level02-fontSize-desktop: rem-calc(18);
+    $responsiveMenu-level02-fontSize-desktop: rem-calc(14);
 
 // level 03
     // colors
@@ -60,16 +63,17 @@ $responsiveMenu-uppercase: true;
     $responsiveMenu-level03-color-hover: #fff;
 
     // properties
-    $responsiveMenu-level03-itemPadding-mobile: 3px 10px 3px 30px;
+    $responsiveMenu-level03-itemPadding-mobile: 15px 10px 15px 30px;
     $responsiveMenu-level03-itemPadding-desktop: 5px 10px;
-    $responsiveMenu-level03-fontSize-mobile: rem-calc(12);
+    $responsiveMenu-level03-fontSize-mobile: rem-calc(16);
     $responsiveMenu-level03-fontSize-desktop: rem-calc(14);
 
 // setting icon hamburger
 @mixin set-icon-hamburger {
+    @include icon-insert(icon-menu);
+
     > span {
-        display: inline-block;
-        position: relative;
+        display: none;
     }
 }
 
@@ -99,6 +103,10 @@ $responsiveMenu-uppercase: true;
 
         @if ($responsiveMenu-divider != none) and ($responsiveMenu-divider != false) {
             border-bottom: $responsiveMenu-divider;
+
+            &:last-child {
+                border-bottom: 0;
+            }
         }
 
         > a {
@@ -112,6 +120,7 @@ $responsiveMenu-uppercase: true;
 
     position: relative;
     font-family: $responsiveMenu-font;
+    font-weight: $responsiveMenu-fontWight;
 
     @if ($responsiveMenu-align == left) {
         float: left;
@@ -150,6 +159,7 @@ $responsiveMenu-uppercase: true;
     padding: $responsiveMenu-root-padding;
     color: $responsiveMenu-root-color;
     font-size: $responsiveMenu-root-fontSize;
+    font-weight: $responsiveMenu-root-fontWight;
     text-align: $responsiveMenu-root-text-align;
     background-color: $responsiveMenu-root-bg;
 
@@ -224,6 +234,10 @@ $responsiveMenu-uppercase: true;
         }
 
         > li {
+            @if $responsiveMenu-level01-bg-transparent-desktop {
+                background-color: transparent;
+            }
+
             border-bottom: none;
 
             @if ($responsiveMenu-level01-align-desktop == left) {
