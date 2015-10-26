@@ -53,8 +53,9 @@ $btn-transition-timing-function: $default-transition-timing-function;
 
     padding: 1rem 2rem 0.9rem;
     margin: 0;
+    font-family: $btn-font-family;
     font-size: 1rem;
-    color: $color-btn-txt;
+    color: $color-btn-txt !important;
     background-color: $color-btn-bg;
 
     @if ($btn-txt-uppercase) {

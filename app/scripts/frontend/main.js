@@ -5,6 +5,8 @@ $(function () {
 
   $(document).foundation();
 
+  $('.wysiwygText').fitVids();
+
 
 // responsive menu ----------------------------
 
