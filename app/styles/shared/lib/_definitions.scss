@@ -6,17 +6,72 @@
 // @import "960/grid";
 // @import "susy";
 
+
+// --------------------------------------------------------------------------------------------------------
+// fontello icons
+// --------------------------------------------------------------------------------------------------------
+
+// fontello font import
+/*@font-face {
+  font-family: 'icons';
+  src: url('/fonts/frontend/fontello/icons.eot?1638495');
+  src: url('/fonts/frontend/fontello/icons.eot?1638495#iefix') format('embedded-opentype'),
+       url('/fonts/frontend/fontello/icons.woff?1638495') format('woff'),
+       url('/fonts/frontend/fontello/icons.ttf?1638495') format('truetype'),
+       url('/fonts/frontend/fontello/icons.svg?1638495#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+%set-iconfamily {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+}
+
+@mixin icon ( $icon ) {
+  @extend %set-iconfamily;
+
+  @if ( $icon == 'icon-' ) { content: '\e800'; }
+}
+
+@mixin icon-insert ($icon, $pos, $pad: 10px) {
+    @if ($pos == before) {
+        &:before {
+            @include icon($icon);
+
+            padding-right: $pad;
+        }
+    }
+
+    @if ($pos == after) {
+        &:after {
+            @include icon($icon);
+
+            padding-left: $pad;
+        }
+    }
+}
+
+
+// --------------------------------------------------------------------------------------------------------
 // font import
-//@import url();
+// --------------------------------------------------------------------------------------------------------
+
+// @import url(//fonts.googleapis.com/css?family=Open+Sans:300,400|Oswald:300,400,700&subset=latin,latin-ext);
 
 
+
+// --------------------------------------------------------------------------------------------------------
 // variables before foundation settings
+// --------------------------------------------------------------------------------------------------------
 
 $fonts: (
-    default: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
-    heading: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
-    btn: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
-    menu: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
+    default: ('Helvetica Neue', Helvetica, Roboto, Arial, sans-serif),
+    heading: ('Helvetica Neue', Helvetica, Roboto, Arial, sans-serif),
+    btn: ('Helvetica Neue', Helvetica, Roboto, Arial, sans-serif),
+    menu: ('Helvetica Neue', Helvetica, Roboto, Arial, sans-serif),
 );
 
 // function for font map
@@ -28,6 +83,11 @@ $fonts: (
     @warn "Unknown `#{$key}` in $fonts.";
     @return null;
 }
+
+
+// --------------------------------------------------------------------------------------------------------
+// font weights
+// --------------------------------------------------------------------------------------------------------
 
 $font-weights: (
     thin: 100,
@@ -49,6 +109,31 @@ $font-weights: (
     @warn "Unknown `#{$key}` in $font-weights.";
     @return null;
 }
+
+
+
+// --------------------------------------------------------------------------------------------------------
+// site specific colors
+// --------------------------------------------------------------------------------------------------------
+
+$xxx-colors: (
+    color01: #222,
+);
+
+// function for custom colors map
+@function xxx-color($key) {
+    @if map-has-key($xxx-colors, $key) {
+        @return map-get($xxx-colors, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $xxx-colors.";
+    @return null;
+}
+
+
+// --------------------------------------------------------------------------------------------------------
+// base colors
+// --------------------------------------------------------------------------------------------------------
 
 $colors: (
     body-bg: #fff,
@@ -74,19 +159,30 @@ $colors: (
 }
 
 
+
+// --------------------------------------------------------------------------------------------------------
 // foundation settings import
-@import "../../../components/foundation/scss/normalize.scss";
+// --------------------------------------------------------------------------------------------------------
+
+@import "../../../components/foundation/scss/vendor/normalize.scss";
 @import "settings.scss";
 
 
+
+// --------------------------------------------------------------------------------------------------------
 // variables after foundation settings
+// --------------------------------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------------------------------
+// gutters
+// --------------------------------------------------------------------------------------------------------
 $gutters: (
-    default: $column-gutter,
-    vertical: $column-gutter,
-    horizontal: $column-gutter,
-    small: $column-gutter / 2,
-    big: $column-gutter * 2,
-    x-big: $column-gutter * 3,
+    default: $grid-column-gutter,
+    vertical: $grid-column-gutter,
+    horizontal: $grid-column-gutter,
+    small: $grid-column-gutter / 2,
+    big: $grid-column-gutter * 2,
+    x-big: $grid-column-gutter * 3,
 );
 
 // function for gutter map
@@ -99,9 +195,10 @@ $gutters: (
     @return null;
 }
 
-// mixins
 
+// --------------------------------------------------------------------------------------------------------
 // base style placeholders and mixins
+// --------------------------------------------------------------------------------------------------------
 
 %body-style {
     padding: 0;
@@ -122,7 +219,7 @@ $gutters: (
     color: $h-color;
     font-size: rem-calc($h-font-size-small);
 
-    @media #{$medium-up} {
+    @include breakpoint(medium up) {
         font-size: rem-calc($h-font-size-medium);
     }
 }
@@ -154,10 +251,6 @@ $gutters: (
 %a-style {
     color: color(a);
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
 }
 
 %hr-style {
@@ -171,7 +264,10 @@ $gutters: (
     margin: 0 0 gutter(horizontal) 0;
 }
 
+
+// --------------------------------------------------------------------------------------------------------
 // wisywygText mixins
+// --------------------------------------------------------------------------------------------------------
 
 %wysiwygText-body {
     @extend %body-style;
