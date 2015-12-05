@@ -166,6 +166,8 @@ $colors: (
 
 @import "../../../components/foundation/scss/vendor/normalize.scss";
 @import "settings.scss";
+@import "motion-ui-settings.scss";
+
 
 
 
@@ -251,6 +253,10 @@ $gutters: (
 %a-style {
     color: color(a);
     text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 %hr-style {

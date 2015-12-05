@@ -18,20 +18,20 @@
 // @import '../../components/foundation/scss/components/accordion.scss';
 // @import '../../components/foundation/scss/components/badge.scss';
 // @import '../../components/foundation/scss/components/breadcrumbs.scss';
-// @import '../../components/foundation/scss/components/callout.scss';
-// @import '../../components/foundation/scss/components/close-button.scss';
+@import '../../components/foundation/scss/components/callout.scss';
+@import '../../components/foundation/scss/components/close-button.scss';
 // @import '../../components/foundation/scss/components/drilldown.scss';
 // @import '../../components/foundation/scss/components/dropdown-menu.scss';
 // @import '../../components/foundation/scss/components/dropdown.scss';
 // @import '../../components/foundation/scss/components/flex-video.scss';
 // @import '../../components/foundation/scss/components/label.scss';
 // @import '../../components/foundation/scss/components/media-object.scss';
-// @import '../../components/foundation/scss/components/menu.scss';
+ @import '../../components/foundation/scss/components/menu.scss';
 // @import '../../components/foundation/scss/components/off-canvas.scss';
 // @import '../../components/foundation/scss/components/orbit.scss';
 // @import '../../components/foundation/scss/components/pagination.scss';
 // @import '../../components/foundation/scss/components/progress-bar.scss';
-// @import '../../components/foundation/scss/components/reveal.scss';
+ @import '../../components/foundation/scss/components/reveal.scss';
 // @import '../../components/foundation/scss/components/slider.scss';
 // @import '../../components/foundation/scss/components/sticky.scss';
 // @import '../../components/foundation/scss/components/switch.scss';
@@ -57,22 +57,22 @@
 // @include foundation-badge;
 // @include foundation-breadcrumbs;
 // @include foundation-button-group;
-// @include foundation-callout;
-// @include foundation-close-button;
+ @include foundation-callout;
+@include foundation-close-button;
 // @include foundation-drilldown-menu;
 // @include foundation-dropdown;
 // @include foundation-dropdown-menu;
 // @include foundation-flex-video;
 // @include foundation-label;
 // @include foundation-media-object;
- // @include foundation-menu;
+ @include foundation-menu;
 // @include foundation-off-canvas;
 // @include foundation-orbit;
 // @include foundation-pagination;
 // @include foundation-progress-bar;
 // @include foundation-slider;
 // @include foundation-sticky;
-// @include foundation-reveal;
+ @include foundation-reveal;
 // @include foundation-switch;
 // @include foundation-table;
 // @include foundation-tabs;
@@ -81,6 +81,35 @@
 // @include foundation-tooltip;
 // @include foundation-top-bar;
 
+
+// motion-ui
+//@import '../../components/motion-ui/settings';
+
+@import '../../components/motion-ui/util/animation';
+@import '../../components/motion-ui/util/args';
+@import '../../components/motion-ui/util/keyframe';
+@import '../../components/motion-ui/util/selector';
+@import '../../components/motion-ui/util/series';
+@import '../../components/motion-ui/util/transition';
+@import '../../components/motion-ui/util/unit';
+
+@import '../../components/motion-ui/effects/fade';
+@import '../../components/motion-ui/effects/hinge';
+@import '../../components/motion-ui/effects/spin';
+@import '../../components/motion-ui/effects/zoom';
+@import '../../components/motion-ui/effects/shake';
+@import '../../components/motion-ui/effects/slide';
+@import '../../components/motion-ui/effects/wiggle';
+
+@import '../../components/motion-ui/transitions/fade';
+@import '../../components/motion-ui/transitions/hinge';
+@import '../../components/motion-ui/transitions/zoom';
+@import '../../components/motion-ui/transitions/slide';
+@import '../../components/motion-ui/transitions/spin';
+
+@import '../../components/motion-ui/classes';
+
+@include motion-ui-transitions;
 
 // plugins
 
@@ -130,6 +159,7 @@ $default-transition-timing-function: cubic-bezier(.4,0,.2,1);
 
 // permanent predefined modules
 @import "main/modules/wysiwygText";
+@import "main/modules/flashMessage";
 
 
 // additional predefined modules
