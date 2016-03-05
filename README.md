@@ -6,9 +6,17 @@
 npm install -g git://github.com/menthainternet/yeoman-cli.git
 ```
 
+Install with nvm:
+
+```
+nvm install v0.8.28 && npm install -g npm@2 && npm install -g git://github.com/menthainternet/yeoman-cli.git
+```
+
 - [OS X, Linux](https://github.com/yeoman/yeoman/wiki/Installation) (`curl -L https://raw.githubusercontent.com/menthainternet/yeoman/mentha/setup/install.sh | bash`)
 - [Windows](http://decodize.com/css/installing-yeoman-front-end-development-stack-windows/)
 - [Windows issues](https://github.com/yeoman/yeoman/issues/216)
+
+
 
 ## Install
 
