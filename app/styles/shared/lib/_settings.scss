@@ -124,7 +124,7 @@ $column-gutter: rem-calc(20); // rem-calc(30);
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: color-ze(grey); //$white;
+$body-bg: color(body-bg); //$white;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
