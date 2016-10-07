@@ -1,0 +1,5 @@
+source 'http://rubygems.org'
+
+gem 'listen', '2.10.1'
+gem 'celluloid-io'
+gem 'thor'

@@ -1,8 +1,10 @@
 source 'http://rubygems.org'
 
 # Compass
-gem 'compass', '0.12.2'
-gem 'oily_png', '1.0.3'
+
+group :compass do
+  gem 'compass', '1.0.1'
+end
 
 # Compass plugins
 group :compass_plugins do
@@ -11,4 +13,11 @@ group :compass_plugins do
   gem 'compass-960-plugin', '0.10.4', :require => 'ninesixty'
   gem 'susy', '1.0.5'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/szinya/compass-twitter-bootstrap.git', :tag => 'v2.3.2'
+end
+
+group :guard, :optional => true do
+  gem 'guard'
+  gem 'guard-yield'
+  gem 'listen', '2.10.1'
+  gem 'celluloid-io'
 end

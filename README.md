@@ -1,3 +1,43 @@
+# Virtual env
+
+## Host requirements
+
+- Virtualbox 5.x
+- Vagrant 1.8.x
+- Ruby 2.3.x
+
+## Terminal #1 (yeoman)
+
+```
+vagrant up
+vagrant ssh
+yeoman server (alias: s)
+(yeoman build (alias: b))
+```
+
+## Terminal #2 (listen)
+
+```
+cd listen
+gem update --system
+gem install bundler
+bundle install
+bundle exec listen -d .. -r
+```
+
+## Terminal #3 (guard)
+
+```
+vagrant ssh
+bundle exec guard -o 10.0.2.2:4000 -i (alias: g)
+```
+
+## Browser
+
+```
+http://localhost:3501/
+```
+
 # Sitebuild
 
 ## Yeoman install
