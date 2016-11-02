@@ -36,8 +36,6 @@ $site-small-gutter: 10px;
 }
 
 @mixin horizontal-list ($list-float, $item-float) {
-  @include marginPadding;
-
   float: $list-float;
   list-style: none;
 
@@ -71,8 +69,6 @@ $site-small-gutter: 10px;
 }
 
 @mixin rgba-box-shadow ($r, $g, $b, $a, $h-off, $v-off, $blur: $default-box-shadow-blur, $spread: $default-box-shadow-spread, $inset: $default-box-shadow-inset) {
-  @include box-shadow(rgba($r, $g, $b, $a) $h-off $v-off $blur, $spread, $inset);
-
   // IE
   .lt-ie9 & {
     @include css3pie;
