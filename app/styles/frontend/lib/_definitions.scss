@@ -36,7 +36,6 @@ $site-small-gutter: 10px;
 }
 
 @mixin horizontal-list ($list-float, $item-float) {
-  @include micro-clearfix;
   @include marginPadding;
 
   float: $list-float;
