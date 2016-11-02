@@ -1,6 +1,0 @@
-.buildignore
-README*
-*.coffee
-*.scss
-*.sass
-templates
