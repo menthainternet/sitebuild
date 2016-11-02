@@ -1,3 +1,4 @@
-temp
-.*/
+.tmp
+.sass-cache
+dist
 node_modules
