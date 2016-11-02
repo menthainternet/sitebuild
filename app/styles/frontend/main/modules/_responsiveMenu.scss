@@ -116,7 +116,7 @@ $responsiveMenu-uppercase: true;
 }
 
 .responsiveMenu {
-    @include micro-clearfix;
+    @include clearfix;
 
     position: relative;
     font-family: $responsiveMenu-font;
@@ -185,7 +185,7 @@ $responsiveMenu-uppercase: true;
 
 // fomratting menu levels specifics
 .responsiveMenu-level01 {
-    @include micro-clearfix;
+    @include clearfix;
     @include set-responsiveMenu-level-colors($responsiveMenu-level01-bg, $responsiveMenu-level01-color, $responsiveMenu-level01-bg-hover, $responsiveMenu-level01-color-hover);
     @include set-responsiveMenu-level-properties($responsiveMenu-level01-itemPadding-mobile, $responsiveMenu-level01-fontSize-mobile);
 

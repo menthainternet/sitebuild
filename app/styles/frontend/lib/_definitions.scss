@@ -29,7 +29,7 @@
 @mixin horizontal-list ($list-float, $item-float) {
     @extend %reset-list;
 
-    @include micro-clearfix;
+    @include clearfix;
 
     float: $list-float;
 
