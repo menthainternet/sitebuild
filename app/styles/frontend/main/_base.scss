@@ -1,51 +1,16 @@
-// H5BP defaults: https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#html5-boilerplate-defaults
-// @include h5bp-base-styles;
-
-// base mixins defined: styles/shared/lib/definitions
-
 body {
-    @extend %body-style;
-    //@extend %remove-scrollbar;
-}
-
-h1 {
-    @extend %h1-style;
-}
-
-h2 {
-    @extend %h2-style;
-}
-
-h3 {
-    @extend %h3-style;
-}
-
-h4 {
-    @extend %h4-style;
-}
-
-h5 {
-    @extend %h5-style;
-}
-
-h6 {
-    @extend %h6-style;
 }
 
 a {
-    @extend %a-style;
 }
 
 p {
-    @extend %p-style;
 }
 
 input,
 select,
 textarea {
-    font-family: font(default);
 }
 
 hr {
-    @extend %hr-style;
 }

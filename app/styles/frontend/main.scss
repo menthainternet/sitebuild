@@ -6,11 +6,11 @@
 // foundation css library
 @import "../../components/foundation/scss/foundation/components/grid";
 //@import "../../components/foundation/scss/foundation/components/accordion";
-@import "../../components/foundation/scss/foundation/components/alert-boxes";
+//@import "../../components/foundation/scss/foundation/components/alert-boxes";
 //@import "../../components/foundation/scss/foundation/components/block-grid";
 //@import "../../components/foundation/scss/foundation/components/breadcrumbs";
 //@import "../../components/foundation/scss/foundation/components/button-groups";
-@import "../../components/foundation/scss/foundation/components/buttons";
+//@import "../../components/foundation/scss/foundation/components/buttons";
 //@import "../../components/foundation/scss/foundation/components/clearing";
 //@import "../../components/foundation/scss/foundation/components/dropdown";
 //@import "../../components/foundation/scss/foundation/components/dropdown-buttons";
@@ -38,18 +38,12 @@
 //@import "../../components/foundation/scss/foundation/components/thumbs";
 //@import "../../components/foundation/scss/foundation/components/tooltips";
 //@import "../../components/foundation/scss/foundation/components/top-bar";
+//@import "../../components/foundation/scss/foundation/components/toolbar";
 //@import "../../components/foundation/scss/foundation/components/type";
 //@import "../../components/foundation/scss/foundation/components/offcanvas";
 @import "../../components/foundation/scss/foundation/components/visibility";
 
-
 // plugins
-
-// H5BP normalize.css: https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#normalizecss
-//@include h5bp-normalize;
-
-// H5BP print styles: https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#print-styles
-// @include h5bp-media;
 
 // Iconic: http://www.somerandomdude.com/work/iconic/
 // usage: @include iconic(lightbulb);
@@ -62,37 +56,12 @@
 
 // @import "frontend/sprites/*.png";
 
-// placeholders and mixins
-%shadow-depth-01 {
-    box-shadow: 0 0 2px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.33);
-}
+// mixins
 
-%shadow-depth-02 {
-    box-shadow: 0 0 3px rgba(0,0,0,.23),0 3px 6px rgba(0,0,0,.36);
-}
-
-$default-transition-duration: 0.3s;
-$default-transition-timing-function: cubic-bezier(.4,0,.2,1);
-@mixin set-transitions ($css-properties...) {
-    @include transition-property($css-properties);
-    @include transition-duration($default-transition-duration);
-    @include transition-timing-function($default-transition-timing-function);
-}
-
-// module imports
 @import "main/base";
 @import "main/layout";
 
-// permanent predefined modules
-@import "main/modules/wysiwygText";
-@import "main/modules/flashMessage";
-@import "main/modules/btn";
-@import "main/modules/list";
-
-// additional predefined modules
-@import "main/modules/responsiveMenu";
-
-// modules
+// @import "main/modules/module";
 
 @import "main/state";
 
