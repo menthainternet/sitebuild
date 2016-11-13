@@ -29,26 +29,17 @@ $btn-transition-timing-function: $default-transition-timing-function;
 }
 
 
-// mixins
-
-@mixin btn-transitions ($css-properties) {
-    @include transition-property($css-properties);
-    @include transition-duration($btn-transition-duration);
-    @include transition-timing-function($btn-transition-timing-function);
-}
-
-
 // btn defaults
 
 .btn {
     @include button($padding: false, $bg: false, $radius: $btn-radius);
 
     @if ($btn-shadow) {
-        @include btn-transitions($btn-transition-properties + ', box-shadow');
+        @include set-transitions($btn-transition-properties + ', box-shadow');
 
         @extend %shadow-btn-depth-01;
     } @else {
-        @include btn-transitions($btn-transition-properties);
+        @include set-transitions($btn-transition-properties);
     }
 
     padding: 1rem 2rem 0.9rem;

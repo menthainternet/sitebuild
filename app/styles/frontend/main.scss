@@ -6,11 +6,11 @@
 // foundation css library
 @import "../../components/foundation/scss/foundation/components/grid";
 //@import "../../components/foundation/scss/foundation/components/accordion";
-//@import "../../components/foundation/scss/foundation/components/alert-boxes";
+@import "../../components/foundation/scss/foundation/components/alert-boxes";
 //@import "../../components/foundation/scss/foundation/components/block-grid";
 //@import "../../components/foundation/scss/foundation/components/breadcrumbs";
 //@import "../../components/foundation/scss/foundation/components/button-groups";
-//@import "../../components/foundation/scss/foundation/components/buttons";
+@import "../../components/foundation/scss/foundation/components/buttons";
 //@import "../../components/foundation/scss/foundation/components/clearing";
 //@import "../../components/foundation/scss/foundation/components/dropdown";
 //@import "../../components/foundation/scss/foundation/components/dropdown-buttons";
@@ -47,6 +47,14 @@
 
 // variables
 
+$default-transition-duration: 0.3s;
+$default-transition-timing-function: cubic-bezier(0,.4,.4,1);
+@mixin set-transitions ($css-properties...) {
+    transition-property: $css-properties;
+    transition-duration: $default-transition-duration;
+    transition-timing-function: $default-transition-timing-function;
+}
+
 // sprites
 
 // @import "frontend/sprites/*.png";
@@ -55,6 +63,12 @@
 
 @import "main/base";
 @import "main/layout";
+
+// permanent predefined modules
+@import "main/modules/wysiwygText";
+@import "main/modules/flashMessage";
+@import "main/modules/btn";
+@import "main/modules/list";
 
 // @import "main/modules/module";
 
