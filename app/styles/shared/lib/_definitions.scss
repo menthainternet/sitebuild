@@ -160,9 +160,14 @@ $gutters: (
 %a-style {
     color: color(a);
     text-decoration: none;
+}
+
+%p-a-style {
+    color: color(a);
+    text-decoration: underline;
 
     &:hover {
-        text-decoration: underline;
+        color: #000;
     }
 }
 
@@ -208,7 +213,7 @@ $gutters: (
 }
 
 %wysiwygText-a {
-    @extend %a-style;
+    @extend %p-a-style;
 }
 
 %wysiwygText-p {
