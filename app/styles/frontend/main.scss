@@ -72,6 +72,8 @@ $default-transition-timing-function: cubic-bezier(0,.4,.4,1);
 
 // @import "main/modules/module";
 
+@import "main/modules/responsiveMenu";
+
 @import "main/state";
 
 @import "../shared/lib/helpers";
