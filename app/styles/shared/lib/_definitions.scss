@@ -13,6 +13,19 @@ $fonts: (
     menu: ("Helvetica Neue", Helvetica, Roboto, Arial, sans-serif),
 );
 
+// fontello
+/*@font-face {
+  font-family: 'icons';
+  src: url('/fonts/frontend/icons/icons.eot?');
+  src: url('/fonts/frontend/icons/icons.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/frontend/icons/icons.woff2?') format('woff2'),
+       url('/fonts/frontend/icons/icons.woff?') format('woff'),
+       url('/fonts/frontend/icons/icons.ttf?') format('truetype'),
+       url('/fonts/frontend/icons/icons.svg?#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
 // function for font map
 @function font($key) {
     @if map-has-key($fonts, $key) {
@@ -209,4 +222,33 @@ $gutters: (
 
 %wysiwygText-hr {
     @extend %hr-style;
+}
+
+
+// icons
+@mixin icon ($icon) {
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    @if ($icon == 'icon-xxx') { content: '\e800'; }
+}
+
+@mixin icon-insert ($icon, $pos: before, $pad: 10px) {
+    @if ($pos == before) {
+        &:before {
+            @include icon($icon);
+
+            padding-right: $pad;
+        }
+    }
+
+    @if ($pos == after) {
+        &:after {
+            @include icon($icon);
+
+            padding-left: $pad;
+        }
+    }
 }
