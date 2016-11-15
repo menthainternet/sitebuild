@@ -1,78 +1,52 @@
+# install
+
+Install nodejs:
+$ nvm install 6.9.1
+
+Using:
+$ nvm use 6.9.1
+
+# project install
+Install packages:
+$ npm install
+
+# Develop
+$ gulp watch
+
+# Build project
+$ gulp build
+
+
+# Features
+
+- sass (libsass)
+- ect (templating)
+- autoprefixer (css vendor prefix)
+- useref (parsing html blocks on build and concat js and css)
+- cssnano (minifying css)
+- uglify (minifying js)
+- html beautifyer (beatutify html)
+
+
 # Sitebuild
-
-## Yeoman install
-
-```
-npm install -g git://github.com/menthainternet/yeoman-cli.git
-```
-
-- [OS X, Linux](https://github.com/yeoman/yeoman/wiki/Installation) (`curl -L https://raw.githubusercontent.com/menthainternet/yeoman/mentha/setup/install.sh | bash`)
-- [Windows](http://decodize.com/css/installing-yeoman-front-end-development-stack-windows/)
-- [Windows issues](https://github.com/yeoman/yeoman/issues/216)
-
-## Install
-
-Checkout vagy yeoman init (ha majd kész lesz a generátor).
 
 ### Post install
 
-```
-$ bundle install
-$ npm install
-```
-
 `composer.json`-ban át kell írni a projekt nevét (`project-name` és `Project name`)
-
-### Fejlesztés könyvtár kiszolgálása
-
-```
-$ yeoman server
-```
-
-### Build
-
-```
-$ yeoman build
-```
-
-### Build könyvtár kiszolgálása
-
-```
-$ yeoman server:dist
-```
-
-### Projectbe ágyazott sitebuild kiszolgálása
-
-```
-$ yeoman server:prj
-```
-
-Használat közben folyamatosan másol mindent a `dist` könyvárba is, erre például Symfony projecten belül van szükség.
 
 ## Konfig
 
 - `composer.json`: [Composer konfig](https://getcomposer.org/)
 - `package.json`: [npm és Node.js konfig](http://package.json.nodejitsu.com/) ([Grunt](http://gruntjs.com/) taskok függőségei)
-- `Gruntfile.js`: [Grunt taskok](https://github.com/gruntjs/grunt/wiki/Getting-started)
-- `Gemfile`, `Gemfile.lock`: [Bundler konfig](http://gembundler.com/#getting-started) ([Compass](http://compass-style.org/) és [pluginjei](http://compass-style.org/frameworks/))
-- `compass.rb`: [Compass konfig](http://compass-style.org/help/tutorials/configuration-reference/)
+- `gulpfile.js`: [gulp taskok](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 - `.editorconfig`: [EditorConfig](http://editorconfig.org/) ([Sublime Text 2 plugin](https://github.com/sindresorhus/editorconfig-sublime#readme))
 
 ## `app/components`
 
 Ide kerülnek a package-nek tekinthető third party összetevők.
 
-A package-ben előre tömörített `.js` és `.css` fájlok legyenek. *
-
-_* egyelőre pont az ellenkezője igaz: [https://github.com/yeoman/grunt-usemin/pull/24]_
-
 Könyvtár név: [package név]-[verzió]
 
-- `app/components/compass_twitter_bootstrap-2.3.2`: [Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) assetek
-- `app/components/css3pie-1.0.0`: [CSS3 PIE](http://css3pie.com/) stable
-- `app/components/css3pie-2.0beta1`: [CSS3 PIE](http://css3pie.com/) beta
-- `app/components/html5-boilerplate-4.3.0`: [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) assetek
-- `app/components/iconic-4af32d470e`: [Iconic](http://www.somerandomdude.com/work/iconic/)
 - `app/components/jquery-1.8.3`: jQuery ([release notes](http://blog.jquery.com/2012/11/13/jquery-1-8-3-released/))
 - `app/components/jquery-1.9.1`: jQuery ([release notes](http://blog.jquery.com/2013/02/04/jquery-1-9-1-released/))
 - `app/components/jquery-1.11.1`: jQuery ([release notes](http://blog.jquery.com/2014/05/01/jquery-1-11-1-and-2-1-1-released/))
@@ -132,18 +106,6 @@ A definíciók a stylesheetek elején, a helperek a végén szerepelnek.
 
 #### `app/styles/shared/lib/_definitions.scss`
 
-Compass import, így mindenhol elérhető.
-
-Ugyanitt a következő Compass plugineket importáljuk:
-
-- [HTML5 Boilerplate](https://github.com/sporkd/compass-h5bp)
-- [Font Stacks](https://github.com/adamstac/font-stacks) (opcionális)
-- [960 Grid System](https://github.com/nextmat/compass-960-plugin) (opcionális)
-- [Susy](https://github.com/ericam/susy) (opcionális)
-
-Mixinek:
-
-- `css3pie`: [CSS3 PIE](http://css3pie.com/), választható stable és beta verziók
 
 #### `app/styles/shared/lib/_helpers.scss`
 
@@ -155,17 +117,6 @@ Frontend stylesheet template SMACSS támogatással.
 
 A stylesheet karakter kódolása UTF-8.
 
-`shared` és `frontend` definíció importok után helyi plugin importok és definíciók.
-
-[H5BP normalize.css](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#normalizecss) include
-
-[H5BP print styles](https://github.com/h5bp/html5-boilerplate/blob/master/doc/css.md#print-styles) include (opcionális)
-
-[Compass Twitter Bootstrap](https://github.com/vwall/compass-twitter-bootstrap) import. Alap, reszponzív és Font Awesome verziók, melyekből csak egyet kell választani. (opcionális)
-
-[Iconic](http://www.somerandomdude.com/work/iconic/) import. Használat: `@include iconic(lightbulb);`. (opcionális)
-
-Sprite import példa kód.
 
 ##### SMACSS szerinti bontás
 
@@ -176,16 +127,16 @@ Sprite import példa kód.
 
 Végül `shared` és `frontend` helperek betöltése, saját helperek definiálása.
 
-#####Class nevek struktúrája:
+##### Class nevek struktúrája:
 
 `[classCategory-]className[-childName][--modifierName]`
 
-######Layout példák
+###### Layout példák
 
 - `l-layoutName`
 - `l-layoutName--modifierName`
 
-######Modul példák
+###### Modul példák
 
 - `modulName`
 - `modulName-childName`
@@ -193,7 +144,7 @@ Végül `shared` és `frontend` helperek betöltése, saját helperek definiál�
 - `modulName-childName--modifierName`
 - `modulName-childName-childName`
 
-######State példa
+###### State példa
 
 - `is-stateName`
 
@@ -230,6 +181,3 @@ A stylesheet karakter kódolása UTF-8.
 ## Felhasznált összetevők
 
 ## TODO
-
-- deployment
-- yeoman generator
