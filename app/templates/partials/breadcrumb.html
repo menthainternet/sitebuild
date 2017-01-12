@@ -1,0 +1,35 @@
+<!--
+
+module: breadcrumb
+
+parameters:
+
+text: item text
+linkTo: link url
+
+usage:
+
+include 'partials/breadcrumb', {
+		items: [
+			{ text: 'Breadcumb 1', linkTo: 'valami.html' }
+			{ text: 'Breadcumb 1-2', linkTo: '#' }
+			{ text: 'Breadcumb 1-2-3' }
+		] }
+
+-->
+
+<nav class="breadcrumb">
+	<ul>
+<% for item in @items : %>
+		<li>
+<% if item.linkTo : %>
+			<a href="<%- item.linkTo %>">
+<% end %>
+				<%- item.text %>
+<% if item.linkTo : %>
+			</a>
+<% end %>
+		</li>
+<% end %>
+	</ul>
+</nav>
