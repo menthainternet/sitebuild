@@ -1,0 +1,48 @@
+<!--
+module: postPreview
+
+parameters:
+
+list: set true if this modul is a part of a list
+itemImgWidth: default image width
+itemImgHeight: default image height
+itemMore: more link text
+itemLinkTo: more link
+item: [
+	items.title: item title
+	items.img: item image url
+	items.imgHeight: alternate item height
+	items.lead: post lead
+]
+
+usage:
+
+include 'partials/postPreview', {
+		itemImgWidth: '100',
+		itemImgHeight: '100',
+		itemMore: 'Tovább',
+		itemLinkTo: 'valami.html',
+		item: { title: 'Egyvalami képpel', img: '/uploads/item_pic_01.jpg', lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' } }
+
+-->
+
+<% block '_postPreview-title' : %>Bejegyzés címe<% end %>
+<% block '_postPreview-linkTo' : %>#<% end %>
+<% if not @list : %>
+<div class="postPreview">
+<% end %>
+<% if @item.img : %>
+	<a class="postPreview-imgLink" href="<%- if @itemLinkTo then @itemLinkTo else content '_postPreview-linkTo' %>"><img src="<%- @item.img %>" width="<%- @imgWidth %>" height="<%- if not @item.imgHeight then @imgHeight else @item.imgHeight %>" alt="kép címe"></a>
+<% end %>
+	<div class="postPreview-lead<%- if not @item.img then ' posts-item-lead--wide' else '' %>">
+		<div class="postPreview-lead-content">
+			<h2><a href="<%- if @itemLinkTo then @itemLinkTo else content '_postPreview-linkTo' %>"><%- if @item.title then @item.title else content '_postPreview-title' %></a></h2>
+			<p><%- @item.lead %></p>
+		</div>
+<% if @itemMore : %>
+		<a href="<%- if @itemLinkTo then @itemLinkTo else content '_postPreview-linkTo' %>"><%- @itemMore %></a>
+<% end %>
+	</div>
+<% if not @list : %>
+</div>
+<% end %>

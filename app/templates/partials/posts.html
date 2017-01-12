@@ -1,0 +1,47 @@
+<!--
+module: posts
+
+parameters:
+
+itemImgWidth: default image width
+itemImgHeight: default image height
+itemMore: more link text
+itemLinkTo: more link
+items: [
+	items.title: item title
+	items.img: item image url
+	items.imgHeight: alternate item height
+	items.lead: post lead
+]
+
+usage:
+
+include 'partials/posts', {
+		itemImgWidth: '100',
+		itemImgHeight: '100',
+		itemMore: 'Tovább',
+		itemLinkTo: 'valami.html',
+		items: [
+			{ title: 'Valami', img: '/uploads/item_pic_01.jpg', lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+			{ title: 'Másvalami', lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+			{ title: 'Mégvalami', img: '/uploads/item_pic_02.jpg', imgHeight: '150', lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+		] }
+
+-->
+
+<div class="posts">
+	<ul>
+<% for item in @items : %>
+		<li>
+			<% include 'partials/postPreview', {
+				list: 'true',
+				itemImgWidth: @itemImgWidth,
+				itemImgHeight: @itemImgHeight,
+				itemMore: @itemMore,
+				itemLinkTo: @itemLinkTo,
+				item: item
+			} %>
+		</li>
+<% end %>
+	</ul>
+</div>
