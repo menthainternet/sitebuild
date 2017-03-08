@@ -2,6 +2,7 @@
 
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import gutil from 'gulp-util';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import del from 'del';
@@ -11,6 +12,13 @@ const bs = browserSync.create();
 
 var minify = false;
 
+var errorHandler = function(){
+    return $.plumber(function(error){
+        gutil.log(gutil.colors.bgRed.bold('\n\nError\nplugin: ' + error.plugin + '\n' + error.message));
+        this.emit('end');
+    });
+};
+
 // Styles
 // - compile Sass with LibSass
 // - add vendor prefixes to CSS with Autoprefixer
@@ -18,7 +26,7 @@ var minify = false;
 // - stream to browser
 
 gulp.task('styles', () => gulp.src('app/styles/**/*.{scss,sass,css}')
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.sourcemaps.init())
   .pipe($.if(/\.(scss|sass)$/, $.sass.sync({
     outputStyle: 'expanded',
@@ -48,7 +56,7 @@ gulp.task('styles', () => gulp.src('app/styles/**/*.{scss,sass,css}')
 // - lint JavaScript with ESLint
 
 gulp.task('lint', () => gulp.src('app/scripts/**/*.{coffee,js}')
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.cached('lint'))
   .pipe($.if('*.coffee', $.coffeelint()))
   .pipe($.if('*.coffee', $.coffeelint.reporter()))
@@ -62,7 +70,7 @@ gulp.task('lint', () => gulp.src('app/scripts/**/*.{coffee,js}')
 // - write sourcemaps
 
 gulp.task('scripts', () => gulp.src('app/scripts/**/*.{coffee,js}')
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.cached('scripts'))
   .pipe($.sourcemaps.init())
   .pipe($.if('*.coffee', $.coffee()))
@@ -76,7 +84,7 @@ gulp.task('scripts', () => gulp.src('app/scripts/**/*.{coffee,js}')
 // - compile with ECT
 
 gulp.task('templates', () => gulp.src('app/templates/*.html')
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.ect({
     ext: '.html'
   }))
@@ -92,7 +100,7 @@ gulp.task('optimize', ['styles', 'scripts', 'templates'], () => gulp.src([
   ], {
     base: '.tmp'
   })
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.if('*.html', $.useref({
     searchPath: ['.tmp', 'app', '.']
   })))
@@ -108,7 +116,7 @@ gulp.task('images', () => gulp.src([
     'app/images/**/*',
     '!app/images/**/README*'
   ])
-  .pipe($.prettyerror())
+  .pipe(errorHandler())
   .pipe($.cached('images'))
   .pipe($.imagemin({
     progressive: true,
